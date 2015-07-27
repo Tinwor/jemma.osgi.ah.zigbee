@@ -23,18 +23,27 @@
 	<groupId>org.energy-home</groupId>
 	<artifactId>jemma.osgi.ah.zigbee</artifactId>
 	<packaging>bundle</packaging>
-	<version>2.1.26</version>
+	<version>2.1.27</version>
 	<name>ZigBee Network Manager</name>
 
 	<properties>
-		<felix.bundle.plugin.version>2.5.3</felix.bundle.plugin.version>
-		<org.slf4j.version>1.6.2</org.slf4j.version>
-		<org.eclipse.osgi.version>3.10.0</org.eclipse.osgi.version>
-		<org.energy-home.jemma.osgi.ah.hac.lib.version>3.1.4</org.energy-home.jemma.osgi.ah.hac.lib.version>
-		<org.energy-home.jemma.osgi.ah.hac.version>3.1.3</org.energy-home.jemma.osgi.ah.hac.version>
-		<org.energy-home.jemma.osgi.javagal.version>2.0.6</org.energy-home.jemma.osgi.javagal.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<!-- Internal dependencies version properties -->
+		<org.energy-home.jemma.osgi.ah.hac.lib.version>3.1.5</org.energy-home.jemma.osgi.ah.hac.lib.version>
+		<org.energy-home.jemma.osgi.javagal.version>2.0.9</org.energy-home.jemma.osgi.javagal.version>		
+		
+		<!-- External dependencies version properties -->
 		<edu.emory.mathcs.backport.version>1.2.0</edu.emory.mathcs.backport.version>
 		<org.eclipse.equinox.util.version>1.0.100</org.eclipse.equinox.util.version>
+		<org.eclipse.osgi.version>3.10.0</org.eclipse.osgi.version>
+		<org.osgi.compendium.version>4.2.0</org.osgi.compendium.version>		
+		<org.osgi.core.version>4.2.0</org.osgi.core.version>			
+		<org.slf4j.version>1.6.2</org.slf4j.version>
+		
+		<!-- Maven plugin version properties -->
+		<felix.bundle.plugin.version>2.5.3</felix.bundle.plugin.version>		
+
 	</properties>
 
 	<build>
@@ -119,93 +128,60 @@
 	</repositories>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.core</artifactId>
-			<version>4.2.0</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.compendium</artifactId>
-			<version>4.2.0</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${org.slf4j.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		
+	
+		<!-- Internal dependencies  -->
 		<dependency>
 			<groupId>org.energy-home</groupId>
 			<artifactId>jemma.osgi.ah.hac.lib</artifactId>
 			<version>${org.energy-home.jemma.osgi.ah.hac.lib.version}</version>
 			<type>bundle</type>
 			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.equinox</groupId>
-			<artifactId>org.eclipse.equinox.util</artifactId>
-			<version>${org.eclipse.equinox.util.version}</version>
-			<scope>compile</scope>
-		</dependency>
+		</dependency>		
 		<dependency>
 			<groupId>org.energy-home</groupId>
 			<artifactId>jemma.osgi.javagal</artifactId>
 			<version>${org.energy-home.jemma.osgi.javagal.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.eclipse.osgi</groupId>
-			<artifactId>org.eclipse.osgi</artifactId>
-			<version>${org.eclipse.osgi.version}</version>
-			<scope>compile</scope>
-		</dependency>
+	
+		<!-- External dependencies -->		
+		
 		<dependency>
 			<groupId>edu.emory.mathcs.backport</groupId>
 			<artifactId>edu.emory.mathcs.backport</artifactId>
 			<version>${edu.emory.mathcs.backport.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<!--<dependency>
-			<groupId>org.energy-home</groupId>
-			<artifactId>jemma.osgi.ah.hac</artifactId>
-			<version>${org.energy-home.jemma.osgi.ah.hac.version}</version>
-			<type>bundle</type>
 			<scope>compile</scope>
 		</dependency>		
-		<dependency>
-			<groupId>org.eclipse.osgi</groupId>
-			<artifactId>org.eclipse.osgi</artifactId>
-			<version>${org.eclipse.osgi.version}</version>
-		</dependency>		    			    
-		<dependency>
-			<groupId>edu.emory.mathcs.backport</groupId>
-			<artifactId>edu.emory.mathcs.backport</artifactId>
-			<version>${edu.emory.mathcs.backport.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.osgi</groupId>
-			<artifactId>org.eclipse.osgi.services</artifactId>
-			<version>${org.eclipse.osgi.services.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.equinox</groupId>
-			<artifactId>org.eclipse.equinox.preferences</artifactId>
-			<version>${org.eclipse.equinox.preferences.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.eclipse.equinox</groupId>
 			<artifactId>org.eclipse.equinox.util</artifactId>
 			<version>${org.eclipse.equinox.util.version}</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.equinox</groupId>
-			<artifactId>org.eclipse.equinox.event</artifactId>
-			<version>${org.eclipse.equinox.event.version}</version>
+			<groupId>org.eclipse.osgi</groupId>
+			<artifactId>org.eclipse.osgi</artifactId>
+			<version>${org.eclipse.osgi.version}</version>
+			<scope>compile</scope>
+		</dependency>		
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+			<version>${org.osgi.compendium.version}</version>
+			<scope>compile</scope>
+		</dependency>		
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>${org.osgi.core.version}</version>
+			<scope>compile</scope>
+		</dependency>	
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j.version}</version>
+			<scope>compile</scope>
 		</dependency>
-		 -->
+
 	</dependencies>
 </project>

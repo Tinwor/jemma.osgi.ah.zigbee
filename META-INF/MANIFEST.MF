@@ -1,14 +1,14 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1436447059538
-Build-Jdk: 1.8.0_45
-Built-By: fabio
+Bnd-LastModified: 1438024976336
+Build-Jdk: 1.7.0_45
+Built-By: bluewind
 Bundle-Category: Automation@Home
 Bundle-ManifestVersion: 2
 Bundle-Name: ZigBee Network Manager
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-SymbolicName: jemma.osgi.ah.zigbee;singleton:=true
 Bundle-Vendor: Telecom Italia
-Bundle-Version: 2.1.26
+Bundle-Version: 2.1.27
 Created-By: Apache Maven Bundle Plugin
 Export-Package: org.energy_home.jemma.ah.zigbee;version="3.0.0";uses:="o
  rg.energy_home.jemma.ah.hac,org.energy_home.jemma.zgd.jaxb",org.energy_
