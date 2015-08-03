@@ -30,16 +30,15 @@ import org.energy_home.jemma.ah.zigbee.zcl.IZclAttributeDescriptor;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.ZclServiceCluster;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeEnum8;
 
-public class ZclOnOffSwitchConfigurationServer extends ZclServiceCluster implements OnOffSwitchConfigurationServer,
-		ZigBeeDeviceListener {
+public class ZclOnOffSwitchConfigurationServer extends ZclServiceCluster implements OnOffSwitchConfigurationServer, ZigBeeDeviceListener {
 
 	public final static short CLUSTER_ID = 7;
 	final static HashMap attributesMapByName = new HashMap();
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclOnOffSwitchConfigurationServer.ATTR_SwitchType_NAME, new ZclAttributeDescriptor(0,
-				ZclOnOffSwitchConfigurationServer.ATTR_SwitchType_NAME, new ZclDataTypeEnum8(), null, true, 1));
+		attributesMapByName.put(ZclOnOffSwitchConfigurationServer.ATTR_SwitchType_NAME, new ZclAttributeDescriptor(0, ZclOnOffSwitchConfigurationServer.ATTR_SwitchType_NAME,
+				new ZclDataTypeEnum8(), null, true, 1));
 		attributesMapByName.put(ZclOnOffSwitchConfigurationServer.ATTR_SwitchActions_NAME, new ZclAttributeDescriptor(16,
 				ZclOnOffSwitchConfigurationServer.ATTR_SwitchActions_NAME, new ZclDataTypeEnum8(), null, true, 0));
 	}
@@ -81,8 +80,7 @@ public class ZclOnOffSwitchConfigurationServer extends ZclServiceCluster impleme
 		return v;
 	}
 
-	public void setSwitchActions(short SwitchActions, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setSwitchActions(short SwitchActions, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 16;
 		int size = 3;
 		size += ZclDataTypeEnum8.zclSize(SwitchActions);

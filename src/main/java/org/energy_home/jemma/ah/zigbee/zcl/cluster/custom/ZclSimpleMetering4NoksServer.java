@@ -36,12 +36,12 @@ public class ZclSimpleMetering4NoksServer extends ZclServiceCluster implements S
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclSimpleMetering4NoksServer.ATTR_Power_NAME, new ZclAttributeDescriptor(0,
-				ZclSimpleMetering4NoksServer.ATTR_Power_NAME, new ZclDataTypeUI32(), null, true, 1));
-		attributesMapByName.put(ZclSimpleMetering4NoksServer.ATTR_Energy_NAME, new ZclAttributeDescriptor(1,
-				ZclSimpleMetering4NoksServer.ATTR_Energy_NAME, new ZclDataTypeUI32(), null, true, 1));
-		attributesMapByName.put(ZclSimpleMetering4NoksServer.ATTR_TimeValue_NAME, new ZclAttributeDescriptor(2,
-				ZclSimpleMetering4NoksServer.ATTR_TimeValue_NAME, new ZclDataTypeUI32(), null, true, 1));
+		attributesMapByName.put(ZclSimpleMetering4NoksServer.ATTR_Power_NAME, new ZclAttributeDescriptor(0, ZclSimpleMetering4NoksServer.ATTR_Power_NAME, new ZclDataTypeUI32(),
+				null, true, 1));
+		attributesMapByName.put(ZclSimpleMetering4NoksServer.ATTR_Energy_NAME, new ZclAttributeDescriptor(1, ZclSimpleMetering4NoksServer.ATTR_Energy_NAME, new ZclDataTypeUI32(),
+				null, true, 1));
+		attributesMapByName.put(ZclSimpleMetering4NoksServer.ATTR_TimeValue_NAME, new ZclAttributeDescriptor(2, ZclSimpleMetering4NoksServer.ATTR_TimeValue_NAME,
+				new ZclDataTypeUI32(), null, true, 1));
 	}
 
 	public ZclSimpleMetering4NoksServer() throws ApplianceException {

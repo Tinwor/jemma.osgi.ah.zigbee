@@ -40,32 +40,32 @@ public class ZclPowerConfigurationServer extends ZclServiceCluster implements Po
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_MainsVoltage_NAME, new ZclAttributeDescriptor(0,
-				ZclPowerConfigurationServer.ATTR_MainsVoltage_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_MainsFrequency_NAME, new ZclAttributeDescriptor(1,
-				ZclPowerConfigurationServer.ATTR_MainsFrequency_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_MainsAlarmMask_NAME, new ZclAttributeDescriptor(16,
-				ZclPowerConfigurationServer.ATTR_MainsAlarmMask_NAME, new ZclDataTypeBitmap8(), null, true, 0));
+		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_MainsVoltage_NAME, new ZclAttributeDescriptor(0, ZclPowerConfigurationServer.ATTR_MainsVoltage_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_MainsFrequency_NAME, new ZclAttributeDescriptor(1, ZclPowerConfigurationServer.ATTR_MainsFrequency_NAME,
+				new ZclDataTypeUI8(), null, true, 1));
+		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_MainsAlarmMask_NAME, new ZclAttributeDescriptor(16, ZclPowerConfigurationServer.ATTR_MainsAlarmMask_NAME,
+				new ZclDataTypeBitmap8(), null, true, 0));
 		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_MainsVoltageMinThreshold_NAME, new ZclAttributeDescriptor(17,
 				ZclPowerConfigurationServer.ATTR_MainsVoltageMinThreshold_NAME, new ZclDataTypeUI16(), null, true, 0));
 		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_MainsVoltageMaxThreshold_NAME, new ZclAttributeDescriptor(18,
 				ZclPowerConfigurationServer.ATTR_MainsVoltageMaxThreshold_NAME, new ZclDataTypeUI16(), null, true, 0));
 		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_MainsVoltageDwellTripPoint_NAME, new ZclAttributeDescriptor(19,
 				ZclPowerConfigurationServer.ATTR_MainsVoltageDwellTripPoint_NAME, new ZclDataTypeUI16(), null, true, 0));
-		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_BatteryVoltage_NAME, new ZclAttributeDescriptor(32,
-				ZclPowerConfigurationServer.ATTR_BatteryVoltage_NAME, new ZclDataTypeUI8(), null, true, 1));
+		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_BatteryVoltage_NAME, new ZclAttributeDescriptor(32, ZclPowerConfigurationServer.ATTR_BatteryVoltage_NAME,
+				new ZclDataTypeUI8(), null, true, 1));
 		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_BatteryManufacturer_NAME, new ZclAttributeDescriptor(48,
 				ZclPowerConfigurationServer.ATTR_BatteryManufacturer_NAME, new ZclDataTypeString(16), null, true, 0));
-		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_BatterySize_NAME, new ZclAttributeDescriptor(49,
-				ZclPowerConfigurationServer.ATTR_BatterySize_NAME, new ZclDataTypeUI8(), null, true, 0));
-		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_BatteryAHrRating_NAME, new ZclAttributeDescriptor(50,
-				ZclPowerConfigurationServer.ATTR_BatteryAHrRating_NAME, new ZclDataTypeUI16(), null, true, 0));
-		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_BatteryQuantity_NAME, new ZclAttributeDescriptor(51,
-				ZclPowerConfigurationServer.ATTR_BatteryQuantity_NAME, new ZclDataTypeUI8(), null, true, 0));
+		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_BatterySize_NAME, new ZclAttributeDescriptor(49, ZclPowerConfigurationServer.ATTR_BatterySize_NAME,
+				new ZclDataTypeUI8(), null, true, 0));
+		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_BatteryAHrRating_NAME, new ZclAttributeDescriptor(50, ZclPowerConfigurationServer.ATTR_BatteryAHrRating_NAME,
+				new ZclDataTypeUI16(), null, true, 0));
+		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_BatteryQuantity_NAME, new ZclAttributeDescriptor(51, ZclPowerConfigurationServer.ATTR_BatteryQuantity_NAME,
+				new ZclDataTypeUI8(), null, true, 0));
 		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_BatteryRatedVoltage_NAME, new ZclAttributeDescriptor(52,
 				ZclPowerConfigurationServer.ATTR_BatteryRatedVoltage_NAME, new ZclDataTypeUI8(), null, true, 0));
-		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_BatteryAlarmMask_NAME, new ZclAttributeDescriptor(53,
-				ZclPowerConfigurationServer.ATTR_BatteryAlarmMask_NAME, new ZclDataTypeUI8(), null, true, 0));
+		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_BatteryAlarmMask_NAME, new ZclAttributeDescriptor(53, ZclPowerConfigurationServer.ATTR_BatteryAlarmMask_NAME,
+				new ZclDataTypeUI8(), null, true, 0));
 		attributesMapByName.put(ZclPowerConfigurationServer.ATTR_BatteryVoltageMinThreshold_NAME, new ZclAttributeDescriptor(54,
 				ZclPowerConfigurationServer.ATTR_BatteryVoltageMinThreshold_NAME, new ZclDataTypeUI8(), null, true, 0));
 	}
@@ -121,8 +121,7 @@ public class ZclPowerConfigurationServer extends ZclServiceCluster implements Po
 		return v;
 	}
 
-	public void setMainsAlarmMask(short MainsAlarmMask, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setMainsAlarmMask(short MainsAlarmMask, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 16;
 		int size = 3;
 		size += ZclDataTypeBitmap8.zclSize(MainsAlarmMask);
@@ -147,8 +146,7 @@ public class ZclPowerConfigurationServer extends ZclServiceCluster implements Po
 		return v;
 	}
 
-	public void setMainsVoltageMinThreshold(int MainsVoltageMinThreshold, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void setMainsVoltageMinThreshold(int MainsVoltageMinThreshold, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 17;
 		int size = 3;
 		size += ZclDataTypeUI16.zclSize(MainsVoltageMinThreshold);
@@ -173,8 +171,7 @@ public class ZclPowerConfigurationServer extends ZclServiceCluster implements Po
 		return v;
 	}
 
-	public void setMainsVoltageMaxThreshold(int MainsVoltageMaxThreshold, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void setMainsVoltageMaxThreshold(int MainsVoltageMaxThreshold, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 18;
 		int size = 3;
 		size += ZclDataTypeUI16.zclSize(MainsVoltageMaxThreshold);
@@ -199,8 +196,7 @@ public class ZclPowerConfigurationServer extends ZclServiceCluster implements Po
 		return v;
 	}
 
-	public void setMainsVoltageDwellTripPoint(int MainsVoltageDwellTripPoint, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void setMainsVoltageDwellTripPoint(int MainsVoltageDwellTripPoint, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 19;
 		int size = 3;
 		size += ZclDataTypeUI16.zclSize(MainsVoltageDwellTripPoint);
@@ -239,8 +235,7 @@ public class ZclPowerConfigurationServer extends ZclServiceCluster implements Po
 		return v;
 	}
 
-	public void setBatteryManufacturer(String BatteryManufacturer, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setBatteryManufacturer(String BatteryManufacturer, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 48;
 		int size = 3;
 		size += ZclDataTypeString.zclSize(BatteryManufacturer);
@@ -265,8 +260,7 @@ public class ZclPowerConfigurationServer extends ZclServiceCluster implements Po
 		return v;
 	}
 
-	public void setBatterySize(short BatterySize, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setBatterySize(short BatterySize, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 49;
 		int size = 3;
 		size += ZclDataTypeUI8.zclSize(BatterySize);
@@ -291,8 +285,7 @@ public class ZclPowerConfigurationServer extends ZclServiceCluster implements Po
 		return v;
 	}
 
-	public void setBatteryAHrRating(int BatteryAHrRating, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setBatteryAHrRating(int BatteryAHrRating, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 50;
 		int size = 3;
 		size += ZclDataTypeUI16.zclSize(BatteryAHrRating);
@@ -317,8 +310,7 @@ public class ZclPowerConfigurationServer extends ZclServiceCluster implements Po
 		return v;
 	}
 
-	public void setBatteryQuantity(short BatteryQuantity, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setBatteryQuantity(short BatteryQuantity, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 51;
 		int size = 3;
 		size += ZclDataTypeUI8.zclSize(BatteryQuantity);
@@ -343,8 +335,7 @@ public class ZclPowerConfigurationServer extends ZclServiceCluster implements Po
 		return v;
 	}
 
-	public void setBatteryRatedVoltage(short BatteryRatedVoltage, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setBatteryRatedVoltage(short BatteryRatedVoltage, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 52;
 		int size = 3;
 		size += ZclDataTypeUI8.zclSize(BatteryRatedVoltage);
@@ -369,8 +360,7 @@ public class ZclPowerConfigurationServer extends ZclServiceCluster implements Po
 		return v;
 	}
 
-	public void setBatteryAlarmMask(short BatteryAlarmMask, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setBatteryAlarmMask(short BatteryAlarmMask, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 53;
 		int size = 3;
 		size += ZclDataTypeUI8.zclSize(BatteryAlarmMask);
@@ -395,8 +385,7 @@ public class ZclPowerConfigurationServer extends ZclServiceCluster implements Po
 		return v;
 	}
 
-	public void setBatteryVoltageMinThreshold(short BatteryVoltageMinThreshold, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void setBatteryVoltageMinThreshold(short BatteryVoltageMinThreshold, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 54;
 		int size = 3;
 		size += ZclDataTypeUI8.zclSize(BatteryVoltageMinThreshold);

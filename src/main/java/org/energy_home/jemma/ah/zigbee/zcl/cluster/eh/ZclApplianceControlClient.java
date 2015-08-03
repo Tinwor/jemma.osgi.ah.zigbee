@@ -90,8 +90,8 @@ public class ZclApplianceControlClient extends ZclServiceCluster implements Appl
 		return CLUSTER_ID;
 	}
 
-	public void execSignalStateNotification(short ApplianceStatus, short RemoteEnableFlags, int ApplianceStatus2,
-			IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public void execSignalStateNotification(short ApplianceStatus, short RemoteEnableFlags, int ApplianceStatus2, IEndPointRequestContext context) throws ApplianceException,
+			ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(ApplianceStatus);
 		size += ZclDataTypeUI8.zclSize(RemoteEnableFlags);
@@ -104,15 +104,13 @@ public class ZclApplianceControlClient extends ZclServiceCluster implements Appl
 		issueExec(zclFrame, 11, context);
 	}
 
-	protected IZclFrame parseCommandExecution(ApplianceControlServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseCommandExecution(ApplianceControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short CommandId = ZclDataTypeEnum8.zclParse(zclFrame);
 		o.execCommandExecution(CommandId, endPoint.getDefaultRequestContext());
 		return null;
 	}
 
-	protected IZclFrame parseSignalState(ApplianceControlServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseSignalState(ApplianceControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		SignalStateResponse r = o.execSignalState(endPoint.getDefaultRequestContext());
 		int size = ZclSignalStateResponse.zclSize(r);
 		IZclFrame zclResponseFrame = zclFrame.createResponseFrame(size);
@@ -121,26 +119,22 @@ public class ZclApplianceControlClient extends ZclServiceCluster implements Appl
 		return zclResponseFrame;
 	}
 
-	protected IZclFrame parseWriteFunctions(ApplianceControlServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseWriteFunctions(ApplianceControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		// TODO: implement this!
 		return null;
 	}
 
-	protected IZclFrame parseOverloadPauseResume(ApplianceControlServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseOverloadPauseResume(ApplianceControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		o.execOverloadPauseResume(endPoint.getDefaultRequestContext());
 		return null;
 	}
 
-	protected IZclFrame parseOverloadPause(ApplianceControlServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseOverloadPause(ApplianceControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		o.execOverloadPause(endPoint.getDefaultRequestContext());
 		return null;
 	}
 
-	protected IZclFrame parseOverloadWarning(ApplianceControlServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseOverloadWarning(ApplianceControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short WarningEvent = ZclDataTypeEnum8.zclParse(zclFrame);
 		o.execOverloadWarning(WarningEvent, endPoint.getDefaultRequestContext());
 		return null;

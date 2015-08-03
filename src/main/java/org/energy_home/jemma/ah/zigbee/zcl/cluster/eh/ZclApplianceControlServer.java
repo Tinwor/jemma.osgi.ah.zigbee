@@ -52,35 +52,55 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclApplianceControlServer.ATTR_StartTime_NAME, new ZclAttributeDescriptor(0,
-				ZclApplianceControlServer.ATTR_StartTime_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclApplianceControlServer.ATTR_FinishTime_NAME, new ZclAttributeDescriptor(1,
-				ZclApplianceControlServer.ATTR_FinishTime_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclApplianceControlServer.ATTR_RemainingTime_NAME, new ZclAttributeDescriptor(2,
-				ZclApplianceControlServer.ATTR_RemainingTime_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ATTR_CycleTarget0_NAME, new ZclAttributeDescriptor(4,
-				ATTR_CycleTarget0_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ATTR_CycleTarget1_NAME, new ZclAttributeDescriptor(5,
-				ATTR_CycleTarget1_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ATTR_TemperatureTarget0_NAME, new ZclAttributeDescriptor(6,
-				ATTR_TemperatureTarget0_NAME, new ZclDataTypeI16(), null, true, 1));
-		attributesMapByName.put(ATTR_TemperatureTarget1_NAME, new ZclAttributeDescriptor(7,
-				ATTR_TemperatureTarget1_NAME, new ZclDataTypeI16(), null, true, 1));
-		attributesMapByName.put(ATTR_Spin_NAME, new ZclAttributeDescriptor(10, //spin attribute id: 0x000a
+		attributesMapByName.put(ZclApplianceControlServer.ATTR_StartTime_NAME, new ZclAttributeDescriptor(0, ZclApplianceControlServer.ATTR_StartTime_NAME, new ZclDataTypeUI16(),
+				null, true, 1));
+		attributesMapByName.put(ZclApplianceControlServer.ATTR_FinishTime_NAME, new ZclAttributeDescriptor(1, ZclApplianceControlServer.ATTR_FinishTime_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclApplianceControlServer.ATTR_RemainingTime_NAME, new ZclAttributeDescriptor(2, ZclApplianceControlServer.ATTR_RemainingTime_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ATTR_CycleTarget0_NAME, new ZclAttributeDescriptor(4, ATTR_CycleTarget0_NAME, new ZclDataTypeUI8(), null, true, 1));
+		attributesMapByName.put(ATTR_CycleTarget1_NAME, new ZclAttributeDescriptor(5, ATTR_CycleTarget1_NAME, new ZclDataTypeUI8(), null, true, 1));
+		attributesMapByName.put(ATTR_TemperatureTarget0_NAME, new ZclAttributeDescriptor(6, ATTR_TemperatureTarget0_NAME, new ZclDataTypeI16(), null, true, 1));
+		attributesMapByName.put(ATTR_TemperatureTarget1_NAME, new ZclAttributeDescriptor(7, ATTR_TemperatureTarget1_NAME, new ZclDataTypeI16(), null, true, 1));
+		attributesMapByName.put(ATTR_Spin_NAME, new ZclAttributeDescriptor(10, // spin
+																				// attribute
+																				// id:
+																				// 0x000a
 				ATTR_Spin_NAME, new ZclDataTypeI16(), null, true, 1));
-		attributesMapByName.put(ATTR_SuperCoolMode_NAME, new ZclAttributeDescriptor(11, //SuperCoolMode attribute id: 0x000b
+		attributesMapByName.put(ATTR_SuperCoolMode_NAME, new ZclAttributeDescriptor(11, // SuperCoolMode
+																						// attribute
+																						// id:
+																						// 0x000b
 				ATTR_SuperCoolMode_NAME, new ZclDataTypeBoolean(), null, true, 1));
-		attributesMapByName.put(ATTR_SuperFreezeMode_NAME, new ZclAttributeDescriptor(12, //SuperFreezeMode attribute id: 0x000c
+		attributesMapByName.put(ATTR_SuperFreezeMode_NAME, new ZclAttributeDescriptor(12, // SuperFreezeMode
+																							// attribute
+																							// id:
+																							// 0x000c
 				ATTR_SuperFreezeMode_NAME, new ZclDataTypeBoolean(), null, true, 1));
-		attributesMapByName.put(ATTR_NormalMode_NAME, new ZclAttributeDescriptor(13, //NormalMode attribute id: 0x000d
+		attributesMapByName.put(ATTR_NormalMode_NAME, new ZclAttributeDescriptor(13, // NormalMode
+																						// attribute
+																						// id:
+																						// 0x000d
 				ATTR_NormalMode_NAME, new ZclDataTypeBoolean(), null, true, 1));
-		attributesMapByName.put(ATTR_EcoMode_NAME, new ZclAttributeDescriptor(14, //EcoMode attribute id: 0x000e
+		attributesMapByName.put(ATTR_EcoMode_NAME, new ZclAttributeDescriptor(14, // EcoMode
+																					// attribute
+																					// id:
+																					// 0x000e
 				ATTR_EcoMode_NAME, new ZclDataTypeBoolean(), null, true, 1));
-		attributesMapByName.put(ATTR_HolidayMode_NAME, new ZclAttributeDescriptor(15, //EcoMode attribute id: 0x000f
+		attributesMapByName.put(ATTR_HolidayMode_NAME, new ZclAttributeDescriptor(15, // EcoMode
+																						// attribute
+																						// id:
+																						// 0x000f
 				ATTR_HolidayMode_NAME, new ZclDataTypeBoolean(), null, true, 1));
-		attributesMapByName.put(ATTR_RemoteControl_NAME, new ZclAttributeDescriptor(18, //RemoteControl attribute id: 0x0012
+		attributesMapByName.put(ATTR_RemoteControl_NAME, new ZclAttributeDescriptor(18, // RemoteControl
+																						// attribute
+																						// id:
+																						// 0x0012
 				ATTR_RemoteControl_NAME, new ZclDataTypeBoolean(), null, true, 1));
-		attributesMapByName.put(ATTR_IceParty_NAME, new ZclAttributeDescriptor(20, //IceParty attribute id: 0x0014
+		attributesMapByName.put(ATTR_IceParty_NAME, new ZclAttributeDescriptor(20, // IceParty
+																					// attribute
+																					// id:
+																					// 0x0014
 				ATTR_IceParty_NAME, new ZclDataTypeBoolean(), null, true, 1));
 
 	}
@@ -106,31 +126,28 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 		switch (commandId) {
 		case 1:
 			try {
-				IServiceCluster[] serviceClusters = ((EndPoint) endPoint)
-						.getPeerServiceClusters(ApplianceControlClient.class.getName());
+				IServiceCluster[] serviceClusters = ((EndPoint) endPoint).getPeerServiceClusters(ApplianceControlClient.class.getName());
 				if (serviceClusters == null) {
 					throw new ServiceClusterException("No appliances connected");
 				} else if (serviceClusters.length == 0) {
 					throw new ServiceClusterException("Service Clusters List is empty!!!");
 				}
-	
+
 				short ApplianceStatus = ZclDataTypeEnum8.zclParse(zclFrame);
 				short RemoteEnableFlags = ZclDataTypeUI8.zclParse(zclFrame);
 				int ApplianceStatus2 = ZclDataTypeUI24.zclParse(zclFrame);
-	
+
 				for (int i = 0; i < serviceClusters.length; i++) {
-					
-						ApplianceControlClient o = (ApplianceControlClient) serviceClusters[i];
-					
-						o.execSignalStateNotification(ApplianceStatus, RemoteEnableFlags, ApplianceStatus2,
-								endPoint.getDefaultRequestContext());
+
+					ApplianceControlClient o = (ApplianceControlClient) serviceClusters[i];
+
+					o.execSignalStateNotification(ApplianceStatus, RemoteEnableFlags, ApplianceStatus2, endPoint.getDefaultRequestContext());
 				}
 
 			} catch (Throwable e) {
-					// ignore the exeption
+				// ignore the exeption
 				e.printStackTrace();
 			}
-
 
 			responseZclFrame = null;
 			break;
@@ -139,12 +156,10 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 			throw new ZclException(ZCL.UNSUP_CLUSTER_COMMAND);
 		}
 
-		
 		if (responseZclFrame == null) {
 			if (!zclFrame.isDefaultResponseDisabled()) {
 				responseZclFrame = getDefaultResponse(zclFrame, statusCode);
-			}
-			else {
+			} else {
 				return true;
 			}
 		}
@@ -174,8 +189,7 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 		return null;
 	}
 
-	public void execCommandExecution(short CommandId, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execCommandExecution(short CommandId, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(CommandId);
 		ZclFrame zclFrame = new ZclFrame(1, size);
@@ -191,8 +205,7 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 		return (ZclSignalStateResponse.zclParse(zclResponseFrame));
 	}
 
-	public void execWriteFunctions(WriteAttributeRecord[] WriteAttributeRecords, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execWriteFunctions(WriteAttributeRecord[] WriteAttributeRecords, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 255;
 		ZclFrame zclFrame = new ZclFrame(1, size);
 		zclFrame.setCommandId(2);
@@ -221,8 +234,7 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execOverloadWarning(short WarningEvent, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execOverloadWarning(short WarningEvent, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(WarningEvent);
 		ZclFrame zclFrame = new ZclFrame(1, size);
@@ -231,8 +243,7 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 		issueExec(zclFrame, 11, context);
 	}
 
-	protected IZclFrame parseSignalStateNotification(ApplianceControlClient o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseSignalStateNotification(ApplianceControlClient o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short ApplianceStatus = ZclDataTypeEnum8.zclParse(zclFrame);
 		short RemoteEnableFlags = ZclDataTypeUI8.zclParse(zclFrame);
 		int ApplianceStatus2 = ZclDataTypeUI24.zclParse(zclFrame);
@@ -281,7 +292,7 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 		setCachedAttributeObject(2, new Integer(v));
 		return v;
 	}
-	
+
 	public short getCycleTarget0(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Short objectResult = null;
@@ -295,7 +306,7 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 		setCachedAttributeObject(4, new Short(v));
 		return v;
 	}
-	
+
 	public short getCycleTarget1(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Short objectResult = null;
@@ -309,7 +320,7 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 		setCachedAttributeObject(5, new Short(v));
 		return v;
 	}
-	
+
 	public int getTemperatureTarget0(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Integer objectResult = null;
@@ -323,7 +334,7 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 		setCachedAttributeObject(6, new Integer(v));
 		return v;
 	}
-	
+
 	public int getTemperatureTarget1(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Integer objectResult = null;
@@ -342,13 +353,17 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 	public short getSpin(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Short objectResult = null;
-			objectResult = ((Short) getValidCachedAttributeObject(10 //spin attribute ID: 0x000a
+			objectResult = ((Short) getValidCachedAttributeObject(10 // spin
+																		// attribute
+																		// ID:
+																		// 0x000a
 					, context.getMaxAgeForAttributeValues()));
 			if (objectResult != null) {
 				return objectResult.shortValue();
 			}
 		}
-		IZclFrame zclFrame = readAttribute(10, context);//spin attribute ID: 0x000a
+		IZclFrame zclFrame = readAttribute(10, context);// spin attribute ID:
+														// 0x000a
 		Integer v = ZclDataTypeUI16.zclParse(zclFrame);
 		setCachedAttributeObject(10, v.shortValue());
 		return v.shortValue();
@@ -358,13 +373,17 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 	public boolean getEcoMode(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Boolean objectResult = null;
-			objectResult = ((Boolean) getValidCachedAttributeObject(14 //EcoMode attribute ID: 0x000e
+			objectResult = ((Boolean) getValidCachedAttributeObject(14 // EcoMode
+																		// attribute
+																		// ID:
+																		// 0x000e
 					, context.getMaxAgeForAttributeValues()));
 			if (objectResult != null) {
 				return objectResult;
 			}
 		}
-		IZclFrame zclFrame = readAttribute(14, context);//EcoMode attribute ID: 0x000e
+		IZclFrame zclFrame = readAttribute(14, context);// EcoMode attribute ID:
+														// 0x000e
 		Boolean v = ZclDataTypeBoolean.zclParse(zclFrame);
 		setCachedAttributeObject(14, v);
 		return v;
@@ -374,13 +393,17 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 	public boolean getNormalMode(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Boolean objectResult = null;
-			objectResult = ((Boolean) getValidCachedAttributeObject(13 //NormalMode attribute ID: 0x000d
+			objectResult = ((Boolean) getValidCachedAttributeObject(13 // NormalMode
+																		// attribute
+																		// ID:
+																		// 0x000d
 					, context.getMaxAgeForAttributeValues()));
 			if (objectResult != null) {
 				return objectResult;
 			}
 		}
-		IZclFrame zclFrame = readAttribute(13, context);//NormalMode attribute ID: 0x000d
+		IZclFrame zclFrame = readAttribute(13, context);// NormalMode attribute
+														// ID: 0x000d
 		Boolean v = ZclDataTypeBoolean.zclParse(zclFrame);
 		setCachedAttributeObject(13, v);
 		return v;
@@ -390,13 +413,17 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 	public boolean getHolidayMode(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Boolean objectResult = null;
-			objectResult = ((Boolean) getValidCachedAttributeObject(15 //HolidayMode attribute ID: 0x000f
+			objectResult = ((Boolean) getValidCachedAttributeObject(15 // HolidayMode
+																		// attribute
+																		// ID:
+																		// 0x000f
 					, context.getMaxAgeForAttributeValues()));
 			if (objectResult != null) {
 				return objectResult;
 			}
 		}
-		IZclFrame zclFrame = readAttribute(15, context);//HolidayMode attribute ID: 0x000f
+		IZclFrame zclFrame = readAttribute(15, context);// HolidayMode attribute
+														// ID: 0x000f
 		Boolean v = ZclDataTypeBoolean.zclParse(zclFrame);
 		setCachedAttributeObject(15, v);
 		return v;
@@ -406,13 +433,17 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 	public boolean getIceParty(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Boolean objectResult = null;
-			objectResult = ((Boolean) getValidCachedAttributeObject(20 //IceParty attribute ID: 0x0014
+			objectResult = ((Boolean) getValidCachedAttributeObject(20 // IceParty
+																		// attribute
+																		// ID:
+																		// 0x0014
 					, context.getMaxAgeForAttributeValues()));
 			if (objectResult != null) {
 				return objectResult;
 			}
 		}
-		IZclFrame zclFrame = readAttribute(20, context);//IceParty attribute ID: 0x0014
+		IZclFrame zclFrame = readAttribute(20, context);// IceParty attribute
+														// ID: 0x0014
 		Boolean v = ZclDataTypeBoolean.zclParse(zclFrame);
 		setCachedAttributeObject(20, v);
 		return v;
@@ -422,32 +453,40 @@ public class ZclApplianceControlServer extends ZclServiceCluster implements Appl
 	public boolean getSuperCoolMode(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Boolean objectResult = null;
-			objectResult = ((Boolean) getValidCachedAttributeObject(11 //SuperCool attribute ID: 0x000b
+			objectResult = ((Boolean) getValidCachedAttributeObject(11 // SuperCool
+																		// attribute
+																		// ID:
+																		// 0x000b
 					, context.getMaxAgeForAttributeValues()));
 			if (objectResult != null) {
 				return objectResult;
 			}
 		}
-		IZclFrame zclFrame = readAttribute(11, context); //SuperCool attribute ID: 0x000b
+		IZclFrame zclFrame = readAttribute(11, context); // SuperCool attribute
+															// ID: 0x000b
 		Boolean v = ZclDataTypeBoolean.zclParse(zclFrame);
 		setCachedAttributeObject(11, v);
 		return v;
 	}
 
 	@Override
-	public boolean getSuperFreezeMode(IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public boolean getSuperFreezeMode(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Boolean objectResult = null;
-			objectResult = ((Boolean) getValidCachedAttributeObject(12 //SuperFreeze attribute ID: 0x000c
+			objectResult = ((Boolean) getValidCachedAttributeObject(12 // SuperFreeze
+																		// attribute
+																		// ID:
+																		// 0x000c
 					, context.getMaxAgeForAttributeValues()));
 			if (objectResult != null) {
 				return objectResult;
 			}
 		}
-		IZclFrame zclFrame = readAttribute(12, context); //SuperFreeze attribute ID: 0x000c
+		IZclFrame zclFrame = readAttribute(12, context); // SuperFreeze
+															// attribute ID:
+															// 0x000c
 		Boolean v = ZclDataTypeBoolean.zclParse(zclFrame);
-		setCachedAttributeObject(12,v);
+		setCachedAttributeObject(12, v);
 		return v;
 
 	}

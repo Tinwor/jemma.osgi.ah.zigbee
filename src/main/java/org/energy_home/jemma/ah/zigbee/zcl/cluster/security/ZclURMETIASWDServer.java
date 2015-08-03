@@ -51,9 +51,8 @@ public class ZclURMETIASWDServer extends ZclServiceCluster implements ZigBeeDevi
 
 	static {
 		attributeDescriptors = new ZclAttributeDescriptor[1];
-		attributeDescriptors[0] = new ZclAttributeDescriptor(0, ZclURMETIASWDServer.ATTR_MaxDurtation_NAME, new ZclDataTypeUI16(), null,
-				true, 1);
-		
+		attributeDescriptors[0] = new ZclAttributeDescriptor(0, ZclURMETIASWDServer.ATTR_MaxDurtation_NAME, new ZclDataTypeUI16(), null, true, 1);
+
 		attributesMapByName = fillAttributesMapsByName(attributeDescriptors, attributesMapByName);
 		attributesMapById = fillAttributesMapsById(attributeDescriptors, attributesMapById);
 	}
@@ -112,22 +111,22 @@ public class ZclURMETIASWDServer extends ZclServiceCluster implements ZigBeeDevi
 		return (attributesMapByName.values());
 	}
 
-	protected IZclFrame parseZoneStatusChangeNotification(IASZoneClient o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseZoneStatusChangeNotification(IASZoneClient o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int ZoneStatus = ZclDataTypeBitmap16.zclParse(zclFrame);
 		short ExtendedStatus = ZclDataTypeBitmap8.zclParse(zclFrame);
 		short ZoneID = 0xff;
 		int Delay = 0;
 		boolean gotZoneId = false;
-		
-		// Added the following code to mantain the compatibility with HA 1.1 devices
+
+		// Added the following code to mantain the compatibility with HA 1.1
+		// devices
 		try {
 			ZoneID = ZclDataTypeUI8.zclParse(zclFrame);
 			gotZoneId = true;
 			Delay = ZclDataTypeUI16.zclParse(zclFrame);
 		} catch (Exception e) {
 			if (gotZoneId)
-				throw new ZclValidationException("missing Delay in ZoneStatusChangeNotification");	
+				throw new ZclValidationException("missing Delay in ZoneStatusChangeNotification");
 		}
 
 		if (o == null) {
@@ -137,8 +136,7 @@ public class ZclURMETIASWDServer extends ZclServiceCluster implements ZigBeeDevi
 		return null;
 	}
 
-	protected IZclFrame parseZoneEnrollRequest(IASZoneClient o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseZoneEnrollRequest(IASZoneClient o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int ZoneType = ZclDataTypeEnum16.zclParse(zclFrame);
 		int ManufacturerCode = ZclDataTypeUI16.zclParse(zclFrame);
 		ZoneEnrollResponse r = o.execZoneEnrollRequest(ZoneType, ManufacturerCode, endPoint.getDefaultRequestContext());
@@ -191,8 +189,7 @@ public class ZclURMETIASWDServer extends ZclServiceCluster implements ZigBeeDevi
 		return v;
 	}
 
-	public void setIAS_CIE_Address(byte[] IAS_CIE_Address, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setIAS_CIE_Address(byte[] IAS_CIE_Address, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 16;
 		int size = 3;
 		size += ZclDataTypeIEEEAddress.zclSize(IAS_CIE_Address.length);

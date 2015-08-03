@@ -40,7 +40,7 @@ public class ZclSimpleMeteringClient extends ZclServiceCluster implements Simple
 	protected int getClusterId() {
 		return CLUSTER_ID;
 	}
-	
+
 	protected int readAttributeResponseGetSize(int attrId) throws ServiceClusterException, ZclValidationException {
 		switch (attrId) {
 
@@ -55,8 +55,7 @@ public class ZclSimpleMeteringClient extends ZclServiceCluster implements Simple
 		}
 	}
 
-	protected boolean fillAttributeRecord(IZclFrame zclResponseFrame, int attrId) throws ServiceClusterException,
-			ApplianceException {
+	protected boolean fillAttributeRecord(IZclFrame zclResponseFrame, int attrId) throws ServiceClusterException, ApplianceException {
 		SimpleMeteringServer c = ((SimpleMeteringServer) getSinglePeerCluster((SimpleMeteringServer.class.getName())));
 
 		switch (attrId) {

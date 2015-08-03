@@ -53,8 +53,8 @@ public class ZclURMETIASWDClient extends ZclServiceCluster implements ZigBeeDevi
 		return ZclIASZoneServer.attributeDescriptors;
 	}
 
-	public void execZoneStatusChangeNotification(int ZoneStatus, short ExtendedStatus, short ZoneID, int Delay,
-			IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public void execZoneStatusChangeNotification(int ZoneStatus, short ExtendedStatus, short ZoneID, int Delay, IEndPointRequestContext context) throws ApplianceException,
+			ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeBitmap16.zclSize(ZoneStatus);
 		size += ZclDataTypeBitmap8.zclSize(ExtendedStatus);
@@ -69,13 +69,11 @@ public class ZclURMETIASWDClient extends ZclServiceCluster implements ZigBeeDevi
 		issueExec(zclFrame, 11, context);
 	}
 
-	public ZoneEnrollResponse execZoneEnrollRequest(int ZoneType, int ManufacturerCode, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public ZoneEnrollResponse execZoneEnrollRequest(int ZoneType, int ManufacturerCode, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum16.zclSize(ZoneType);
 		size += ZclDataTypeUI16.zclSize(ManufacturerCode);
-		
-		
+
 		ZclFrame zclFrame = new ZclFrame(1, size);
 		zclFrame.setCommandId(1);
 		ZclDataTypeEnum16.zclSerialize(zclFrame, ZoneType);
@@ -101,8 +99,7 @@ public class ZclURMETIASWDClient extends ZclServiceCluster implements ZigBeeDevi
 		}
 	}
 
-	protected boolean fillAttributeRecord(IZclFrame zclResponseFrame, int attrId) throws ApplianceException,
-			ServiceClusterException {
+	protected boolean fillAttributeRecord(IZclFrame zclResponseFrame, int attrId) throws ApplianceException, ServiceClusterException {
 		IASZoneServer c = ((IASZoneServer) getSinglePeerCluster((IASZoneServer.class.getName())));
 		switch (attrId) {
 		case 0: {

@@ -30,24 +30,23 @@ import org.energy_home.jemma.ah.zigbee.zcl.lib.ZclServiceCluster;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeEnum8;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeI16;
 
-public class ZclIlluminanceMeasurementServer extends ZclServiceCluster implements IlluminanceMeasurementServer,
-		ZigBeeDeviceListener {
+public class ZclIlluminanceMeasurementServer extends ZclServiceCluster implements IlluminanceMeasurementServer, ZigBeeDeviceListener {
 
 	public final static short CLUSTER_ID = 1024;
 	final static HashMap attributesMapByName = new HashMap();
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclIlluminanceMeasurementServer.ATTR_MeasuredValue_NAME, new ZclAttributeDescriptor(0,
-				ZclIlluminanceMeasurementServer.ATTR_MeasuredValue_NAME, new ZclDataTypeI16(), null, true, 1));
+		attributesMapByName.put(ZclIlluminanceMeasurementServer.ATTR_MeasuredValue_NAME, new ZclAttributeDescriptor(0, ZclIlluminanceMeasurementServer.ATTR_MeasuredValue_NAME,
+				new ZclDataTypeI16(), null, true, 1));
 		attributesMapByName.put(ZclIlluminanceMeasurementServer.ATTR_MinMeasuredValue_NAME, new ZclAttributeDescriptor(1,
 				ZclIlluminanceMeasurementServer.ATTR_MinMeasuredValue_NAME, new ZclDataTypeI16(), null, true, 1));
 		attributesMapByName.put(ZclIlluminanceMeasurementServer.ATTR_MaxMeasuredValue_NAME, new ZclAttributeDescriptor(2,
 				ZclIlluminanceMeasurementServer.ATTR_MaxMeasuredValue_NAME, new ZclDataTypeI16(), null, true, 1));
-		attributesMapByName.put(ZclIlluminanceMeasurementServer.ATTR_Tolerance_NAME, new ZclAttributeDescriptor(3,
-				ZclIlluminanceMeasurementServer.ATTR_Tolerance_NAME, new ZclDataTypeI16(), null, true, 1));
-		attributesMapByName.put(ZclIlluminanceMeasurementServer.ATTR_LightSensorType_NAME, new ZclAttributeDescriptor(4,
-				ZclIlluminanceMeasurementServer.ATTR_LightSensorType_NAME, new ZclDataTypeEnum8(), null, true, 1));
+		attributesMapByName.put(ZclIlluminanceMeasurementServer.ATTR_Tolerance_NAME, new ZclAttributeDescriptor(3, ZclIlluminanceMeasurementServer.ATTR_Tolerance_NAME,
+				new ZclDataTypeI16(), null, true, 1));
+		attributesMapByName.put(ZclIlluminanceMeasurementServer.ATTR_LightSensorType_NAME, new ZclAttributeDescriptor(4, ZclIlluminanceMeasurementServer.ATTR_LightSensorType_NAME,
+				new ZclDataTypeEnum8(), null, true, 1));
 	}
 
 	public ZclIlluminanceMeasurementServer() throws ApplianceException {

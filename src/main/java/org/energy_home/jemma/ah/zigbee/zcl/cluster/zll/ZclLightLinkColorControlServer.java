@@ -41,82 +41,82 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_CurrentHue_NAME, new ZclAttributeDescriptor(0,
-				ZclLightLinkColorControlServer.ATTR_CurrentHue_NAME, new ZclDataTypeUI8(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_CurrentHue_NAME, new ZclAttributeDescriptor(0, ZclLightLinkColorControlServer.ATTR_CurrentHue_NAME,
+				new ZclDataTypeUI8(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_CurrentSaturation_NAME, new ZclAttributeDescriptor(1,
 				ZclLightLinkColorControlServer.ATTR_CurrentSaturation_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_RemainingTime_NAME, new ZclAttributeDescriptor(2,
-				ZclLightLinkColorControlServer.ATTR_RemainingTime_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_CurrentX_NAME, new ZclAttributeDescriptor(3,
-				ZclLightLinkColorControlServer.ATTR_CurrentX_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_CurrentY_NAME, new ZclAttributeDescriptor(4,
-				ZclLightLinkColorControlServer.ATTR_CurrentY_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_RemainingTime_NAME, new ZclAttributeDescriptor(2, ZclLightLinkColorControlServer.ATTR_RemainingTime_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_CurrentX_NAME, new ZclAttributeDescriptor(3, ZclLightLinkColorControlServer.ATTR_CurrentX_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_CurrentY_NAME, new ZclAttributeDescriptor(4, ZclLightLinkColorControlServer.ATTR_CurrentY_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_DriftCompensation_NAME, new ZclAttributeDescriptor(5,
 				ZclLightLinkColorControlServer.ATTR_DriftCompensation_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_CompensationText_NAME, new ZclAttributeDescriptor(6,
-				ZclLightLinkColorControlServer.ATTR_CompensationText_NAME, new ZclDataTypeString(266), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorTemperature_NAME, new ZclAttributeDescriptor(7,
-				ZclLightLinkColorControlServer.ATTR_ColorTemperature_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorMode_NAME, new ZclAttributeDescriptor(8,
-				ZclLightLinkColorControlServer.ATTR_ColorMode_NAME, new ZclDataTypeEnum8(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_CompensationText_NAME, new ZclAttributeDescriptor(6, ZclLightLinkColorControlServer.ATTR_CompensationText_NAME,
+				new ZclDataTypeString(266), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorTemperature_NAME, new ZclAttributeDescriptor(7, ZclLightLinkColorControlServer.ATTR_ColorTemperature_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorMode_NAME, new ZclAttributeDescriptor(8, ZclLightLinkColorControlServer.ATTR_ColorMode_NAME,
+				new ZclDataTypeEnum8(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_NumberOfPrimaries_NAME, new ZclAttributeDescriptor(16,
 				ZclLightLinkColorControlServer.ATTR_NumberOfPrimaries_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary1X_NAME, new ZclAttributeDescriptor(17,
-				ZclLightLinkColorControlServer.ATTR_Primary1X_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary1Y_NAME, new ZclAttributeDescriptor(18,
-				ZclLightLinkColorControlServer.ATTR_Primary1Y_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary1X_NAME, new ZclAttributeDescriptor(17, ZclLightLinkColorControlServer.ATTR_Primary1X_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary1Y_NAME, new ZclAttributeDescriptor(18, ZclLightLinkColorControlServer.ATTR_Primary1Y_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary1Intensity_NAME, new ZclAttributeDescriptor(19,
 				ZclLightLinkColorControlServer.ATTR_Primary1Intensity_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary2X_NAME, new ZclAttributeDescriptor(21,
-				ZclLightLinkColorControlServer.ATTR_Primary2X_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary2Y_NAME, new ZclAttributeDescriptor(22,
-				ZclLightLinkColorControlServer.ATTR_Primary2Y_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary2X_NAME, new ZclAttributeDescriptor(21, ZclLightLinkColorControlServer.ATTR_Primary2X_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary2Y_NAME, new ZclAttributeDescriptor(22, ZclLightLinkColorControlServer.ATTR_Primary2Y_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary2Intensity_NAME, new ZclAttributeDescriptor(23,
 				ZclLightLinkColorControlServer.ATTR_Primary2Intensity_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary3X_NAME, new ZclAttributeDescriptor(25,
-				ZclLightLinkColorControlServer.ATTR_Primary3X_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary3Y_NAME, new ZclAttributeDescriptor(26,
-				ZclLightLinkColorControlServer.ATTR_Primary3Y_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary3X_NAME, new ZclAttributeDescriptor(25, ZclLightLinkColorControlServer.ATTR_Primary3X_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary3Y_NAME, new ZclAttributeDescriptor(26, ZclLightLinkColorControlServer.ATTR_Primary3Y_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary3Intensity_NAME, new ZclAttributeDescriptor(27,
 				ZclLightLinkColorControlServer.ATTR_Primary3Intensity_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary4X_NAME, new ZclAttributeDescriptor(32,
-				ZclLightLinkColorControlServer.ATTR_Primary4X_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary4Y_NAME, new ZclAttributeDescriptor(33,
-				ZclLightLinkColorControlServer.ATTR_Primary4Y_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary4X_NAME, new ZclAttributeDescriptor(32, ZclLightLinkColorControlServer.ATTR_Primary4X_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary4Y_NAME, new ZclAttributeDescriptor(33, ZclLightLinkColorControlServer.ATTR_Primary4Y_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary4Intensity_NAME, new ZclAttributeDescriptor(34,
 				ZclLightLinkColorControlServer.ATTR_Primary4Intensity_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary5X_NAME, new ZclAttributeDescriptor(36,
-				ZclLightLinkColorControlServer.ATTR_Primary5X_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary5Y_NAME, new ZclAttributeDescriptor(37,
-				ZclLightLinkColorControlServer.ATTR_Primary5Y_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary5X_NAME, new ZclAttributeDescriptor(36, ZclLightLinkColorControlServer.ATTR_Primary5X_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary5Y_NAME, new ZclAttributeDescriptor(37, ZclLightLinkColorControlServer.ATTR_Primary5Y_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary5Intensity_NAME, new ZclAttributeDescriptor(38,
 				ZclLightLinkColorControlServer.ATTR_Primary5Intensity_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary6X_NAME, new ZclAttributeDescriptor(40,
-				ZclLightLinkColorControlServer.ATTR_Primary6X_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary6Y_NAME, new ZclAttributeDescriptor(41,
-				ZclLightLinkColorControlServer.ATTR_Primary6Y_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary6X_NAME, new ZclAttributeDescriptor(40, ZclLightLinkColorControlServer.ATTR_Primary6X_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary6Y_NAME, new ZclAttributeDescriptor(41, ZclLightLinkColorControlServer.ATTR_Primary6Y_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_Primary6Intensity_NAME, new ZclAttributeDescriptor(42,
 				ZclLightLinkColorControlServer.ATTR_Primary6Intensity_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_WhitePointX_NAME, new ZclAttributeDescriptor(48,
-				ZclLightLinkColorControlServer.ATTR_WhitePointX_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_WhitePointY_NAME, new ZclAttributeDescriptor(49,
-				ZclLightLinkColorControlServer.ATTR_WhitePointY_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointRX_NAME, new ZclAttributeDescriptor(50,
-				ZclLightLinkColorControlServer.ATTR_ColorPointRX_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointRY_NAME, new ZclAttributeDescriptor(51,
-				ZclLightLinkColorControlServer.ATTR_ColorPointRY_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_WhitePointX_NAME, new ZclAttributeDescriptor(48, ZclLightLinkColorControlServer.ATTR_WhitePointX_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_WhitePointY_NAME, new ZclAttributeDescriptor(49, ZclLightLinkColorControlServer.ATTR_WhitePointY_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointRX_NAME, new ZclAttributeDescriptor(50, ZclLightLinkColorControlServer.ATTR_ColorPointRX_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointRY_NAME, new ZclAttributeDescriptor(51, ZclLightLinkColorControlServer.ATTR_ColorPointRY_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointRIntensity_NAME, new ZclAttributeDescriptor(52,
 				ZclLightLinkColorControlServer.ATTR_ColorPointRIntensity_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointGX_NAME, new ZclAttributeDescriptor(54,
-				ZclLightLinkColorControlServer.ATTR_ColorPointGX_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointGY_NAME, new ZclAttributeDescriptor(55,
-				ZclLightLinkColorControlServer.ATTR_ColorPointGY_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointGX_NAME, new ZclAttributeDescriptor(54, ZclLightLinkColorControlServer.ATTR_ColorPointGX_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointGY_NAME, new ZclAttributeDescriptor(55, ZclLightLinkColorControlServer.ATTR_ColorPointGY_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointGIntensity_NAME, new ZclAttributeDescriptor(56,
 				ZclLightLinkColorControlServer.ATTR_ColorPointGIntensity_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointBX_NAME, new ZclAttributeDescriptor(58,
-				ZclLightLinkColorControlServer.ATTR_ColorPointBX_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointBY_NAME, new ZclAttributeDescriptor(59,
-				ZclLightLinkColorControlServer.ATTR_ColorPointBY_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointBX_NAME, new ZclAttributeDescriptor(58, ZclLightLinkColorControlServer.ATTR_ColorPointBX_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointBY_NAME, new ZclAttributeDescriptor(59, ZclLightLinkColorControlServer.ATTR_ColorPointBY_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorPointBIntensity_NAME, new ZclAttributeDescriptor(60,
 				ZclLightLinkColorControlServer.ATTR_ColorPointBIntensity_NAME, new ZclDataTypeUI8(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_EnhancedCurrentHue_NAME, new ZclAttributeDescriptor(16384,
@@ -127,8 +127,8 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 				ZclLightLinkColorControlServer.ATTR_ColorLoopActive_NAME, new ZclDataTypeUI8(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorLoopDirection_NAME, new ZclAttributeDescriptor(16387,
 				ZclLightLinkColorControlServer.ATTR_ColorLoopDirection_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorLoopTime_NAME, new ZclAttributeDescriptor(16388,
-				ZclLightLinkColorControlServer.ATTR_ColorLoopTime_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorLoopTime_NAME, new ZclAttributeDescriptor(16388, ZclLightLinkColorControlServer.ATTR_ColorLoopTime_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorLoopStartEnhancedHue_NAME, new ZclAttributeDescriptor(16389,
 				ZclLightLinkColorControlServer.ATTR_ColorLoopStartEnhancedHue_NAME, new ZclDataTypeUI16(), null, true, 1));
 		attributesMapByName.put(ZclLightLinkColorControlServer.ATTR_ColorLoopStoredEnhancedHue_NAME, new ZclAttributeDescriptor(16390,
@@ -148,7 +148,7 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 	protected int getProfileId() {
 		return 260;
 	}
-	
+
 	protected int getClusterId() {
 		return CLUSTER_ID;
 	}
@@ -168,8 +168,7 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 		return null;
 	}
 
-	public void execMoveToHue(short Hue, short Direction, int TransitionTime, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execMoveToHue(short Hue, short Direction, int TransitionTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(Hue);
 		size += ZclDataTypeEnum8.zclSize(Direction);
@@ -182,8 +181,7 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execMoveHue(short MoveMode, short Rate, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execMoveHue(short MoveMode, short Rate, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(MoveMode);
 		size += ZclDataTypeUI8.zclSize(Rate);
@@ -194,8 +192,7 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execStepHue(short StepMode, short StepSize, int TransitionTime, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execStepHue(short StepMode, short StepSize, int TransitionTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(StepMode);
 		size += ZclDataTypeUI8.zclSize(StepSize);
@@ -208,8 +205,7 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execMoveToSaturation(short Saturation, int TransitionTime, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execMoveToSaturation(short Saturation, int TransitionTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(Saturation);
 		size += ZclDataTypeUI16.zclSize(TransitionTime);
@@ -220,8 +216,7 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execMoveSaturation(short MoveMode, short Rate, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execMoveSaturation(short MoveMode, short Rate, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(MoveMode);
 		size += ZclDataTypeUI8.zclSize(Rate);
@@ -232,8 +227,7 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execStepSaturation(short StepMode, short StepSize, int TransitionTime, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execStepSaturation(short StepMode, short StepSize, int TransitionTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(StepMode);
 		size += ZclDataTypeUI8.zclSize(StepSize);
@@ -246,8 +240,7 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execMoveToHueAndSaturation(short Hue, short Saturation, int TransitionTime, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execMoveToHueAndSaturation(short Hue, short Saturation, int TransitionTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(Hue);
 		size += ZclDataTypeUI8.zclSize(Saturation);
@@ -260,8 +253,7 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execMoveToColor(int ColorX, int ColorY, int TransitionTime, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execMoveToColor(int ColorX, int ColorY, int TransitionTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(ColorX);
 		size += ZclDataTypeUI16.zclSize(ColorY);
@@ -274,8 +266,7 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execMoveColor(int RateX, int RateY, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execMoveColor(int RateX, int RateY, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeI16.zclSize(RateX);
 		size += ZclDataTypeI16.zclSize(RateY);
@@ -286,8 +277,7 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execStepColor(int StepX, int StepY, int TransitionTime, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execStepColor(int StepX, int StepY, int TransitionTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeI16.zclSize(StepX);
 		size += ZclDataTypeI16.zclSize(StepY);
@@ -300,8 +290,7 @@ public class ZclLightLinkColorControlServer extends ZclServiceCluster implements
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execMoveToColorTemperature(short ColorTemperature, int TransitionTime, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execMoveToColorTemperature(short ColorTemperature, int TransitionTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(ColorTemperature);
 		size += ZclDataTypeUI16.zclSize(TransitionTime);

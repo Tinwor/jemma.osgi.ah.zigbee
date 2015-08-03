@@ -83,8 +83,7 @@ public class ZclAlarmsClient extends ZclServiceCluster implements AlarmsClient, 
 		return CLUSTER_ID;
 	}
 
-	public void execAlarm(short AlarmCode, int ClusterIdentifier, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execAlarm(short AlarmCode, int ClusterIdentifier, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(AlarmCode);
 		size += ZclDataTypeUI16.zclSize(ClusterIdentifier);

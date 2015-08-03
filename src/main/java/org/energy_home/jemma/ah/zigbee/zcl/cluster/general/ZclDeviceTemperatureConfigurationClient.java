@@ -20,8 +20,7 @@ import org.energy_home.jemma.ah.hac.ApplianceException;
 import org.energy_home.jemma.ah.zigbee.ZigBeeDeviceListener;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.ZclServiceCluster;
 
-public class ZclDeviceTemperatureConfigurationClient extends ZclServiceCluster implements DeviceTemperatureConfigurationClient,
-		ZigBeeDeviceListener {
+public class ZclDeviceTemperatureConfigurationClient extends ZclServiceCluster implements DeviceTemperatureConfigurationClient, ZigBeeDeviceListener {
 
 	public final static short CLUSTER_ID = 2;
 

@@ -93,8 +93,7 @@ public class ZclLevelControlClient extends ZclServiceCluster implements LevelCon
 		return CLUSTER_ID;
 	}
 
-	protected IZclFrame parseMoveToLevel(LevelControlServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseMoveToLevel(LevelControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short Level = ZclDataTypeUI8.zclParse(zclFrame);
 		int TransitionTime = ZclDataTypeUI16.zclParse(zclFrame);
 		o.execMoveToLevel(Level, TransitionTime, null);
@@ -121,24 +120,21 @@ public class ZclLevelControlClient extends ZclServiceCluster implements LevelCon
 		return null;
 	}
 
-	protected IZclFrame parseMoveToLevelWithOnOff(LevelControlServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseMoveToLevelWithOnOff(LevelControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short Level = ZclDataTypeUI8.zclParse(zclFrame);
 		int TransitionTime = ZclDataTypeUI16.zclParse(zclFrame);
 		o.execMoveToLevelWithOnOff(Level, TransitionTime, null);
 		return null;
 	}
 
-	protected IZclFrame parseMoveWithOnOff(LevelControlServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseMoveWithOnOff(LevelControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short MoveMode = ZclDataTypeEnum8.zclParse(zclFrame);
 		short Rate = ZclDataTypeUI8.zclParse(zclFrame);
 		o.execMoveWithOnOff(MoveMode, Rate, null);
 		return null;
 	}
 
-	protected IZclFrame parseStepWithOnOff(LevelControlServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseStepWithOnOff(LevelControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short StepMode = ZclDataTypeEnum8.zclParse(zclFrame);
 		short StepSize = ZclDataTypeUI8.zclParse(zclFrame);
 		int TransitionTime = ZclDataTypeUI16.zclParse(zclFrame);
@@ -146,8 +142,7 @@ public class ZclLevelControlClient extends ZclServiceCluster implements LevelCon
 		return null;
 	}
 
-	protected IZclFrame parseStopWithOnOff(LevelControlServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseStopWithOnOff(LevelControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		o.execStopWithOnOff(null);
 		return null;
 	}

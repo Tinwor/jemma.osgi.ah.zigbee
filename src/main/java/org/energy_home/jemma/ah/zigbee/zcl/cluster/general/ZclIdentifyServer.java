@@ -38,8 +38,7 @@ public class ZclIdentifyServer extends ZclServiceCluster implements IdentifyServ
 	static Map attributesMapByName = null;
 	static Map attributesMapById = null;
 
-	static ZclAttributeDescriptor[] attributeDescriptors = { new ZclAttributeDescriptor(0,
-			ZclIdentifyServer.ATTR_IdentifyTime_NAME, new ZclDataTypeUI16(), null, true, 0) };
+	static ZclAttributeDescriptor[] attributeDescriptors = { new ZclAttributeDescriptor(0, ZclIdentifyServer.ATTR_IdentifyTime_NAME, new ZclDataTypeUI16(), null, true, 0) };
 
 	static {
 		attributesMapById = fillAttributesMapsById(attributeDescriptors, attributesMapById);
@@ -75,16 +74,14 @@ public class ZclIdentifyServer extends ZclServiceCluster implements IdentifyServ
 		issueExec(zclFrame, 11, context);
 	}
 
-	public IdentifyQueryResponse execIdentifyQuery(IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public IdentifyQueryResponse execIdentifyQuery(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		ZclFrame zclFrame = new ZclFrame(1);
 		zclFrame.setCommandId(1);
 		IZclFrame zclResponseFrame = issueExec(zclFrame, 0, context);
 		return (ZclIdentifyQueryResponse.zclParse(zclResponseFrame));
 	}
 
-	public void setIdentifyTime(int IdentifyTime, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setIdentifyTime(int IdentifyTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 0;
 		int size = 3;
 		size += ZclDataTypeUI16.zclSize(IdentifyTime);

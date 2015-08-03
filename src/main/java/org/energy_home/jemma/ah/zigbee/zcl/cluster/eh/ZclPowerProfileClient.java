@@ -97,9 +97,8 @@ public class ZclPowerProfileClient extends ZclServiceCluster implements PowerPro
 		return CLUSTER_ID;
 	}
 
-	public void execPowerProfileNotification(short TotalProfileNum, short PowerProfileID,
-			PowerProfileTransferredPhase[] PowerProfileTransferredPhases, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execPowerProfileNotification(short TotalProfileNum, short PowerProfileID, PowerProfileTransferredPhase[] PowerProfileTransferredPhases,
+			IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(TotalProfileNum);
 		size += ZclDataTypeUI8.zclSize(PowerProfileID);
@@ -116,8 +115,7 @@ public class ZclPowerProfileClient extends ZclServiceCluster implements PowerPro
 		issueExec(zclFrame, 11, context);
 	}
 
-	public GetPowerProfilePriceResponse execGetPowerProfilePrice(short PowerProfileID, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public GetPowerProfilePriceResponse execGetPowerProfilePrice(short PowerProfileID, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(PowerProfileID);
 		ZclFrame zclFrame = new ZclFrame(1, size);
@@ -127,8 +125,7 @@ public class ZclPowerProfileClient extends ZclServiceCluster implements PowerPro
 		return (ZclGetPowerProfilePriceResponse.zclParse(zclResponseFrame));
 	}
 
-	public void execPowerProfilesStateNotification(PowerProfile[] PowerProfiles, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execPowerProfilesStateNotification(PowerProfile[] PowerProfiles, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += (PowerProfiles.length * ZclPowerProfile.zclSize(null));
 		ZclFrame zclFrame = new ZclFrame(1, size);
@@ -142,16 +139,14 @@ public class ZclPowerProfileClient extends ZclServiceCluster implements PowerPro
 		issueExec(zclFrame, 11, context);
 	}
 
-	public GetOverallSchedulePriceResponse execGetOverallSchedulePrice(IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public GetOverallSchedulePriceResponse execGetOverallSchedulePrice(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		ZclFrame zclFrame = new ZclFrame(1);
 		zclFrame.setCommandId(5);
 		IZclFrame zclResponseFrame = issueExec(zclFrame, 3, context);
 		return (ZclGetOverallSchedulePriceResponse.zclParse(zclResponseFrame));
 	}
 
-	public EnergyPhasesScheduleResponse execEnergyPhasesScheduleRequest(short PowerProfileID, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public EnergyPhasesScheduleResponse execEnergyPhasesScheduleRequest(short PowerProfileID, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(PowerProfileID);
 		ZclFrame zclFrame = new ZclFrame(1, size);
@@ -161,8 +156,8 @@ public class ZclPowerProfileClient extends ZclServiceCluster implements PowerPro
 		return (ZclEnergyPhasesScheduleResponse.zclParse(zclResponseFrame));
 	}
 
-	public void execEnergyPhasesScheduleStateNotification(short PowerProfileID, ScheduledPhase[] ScheduledPhases,
-			IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public void execEnergyPhasesScheduleStateNotification(short PowerProfileID, ScheduledPhase[] ScheduledPhases, IEndPointRequestContext context) throws ApplianceException,
+			ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(PowerProfileID);
 		size += (ScheduledPhases.length * ZclScheduledPhase.zclSize(null));
@@ -176,8 +171,8 @@ public class ZclPowerProfileClient extends ZclServiceCluster implements PowerPro
 		}
 	}
 
-	public void execPowerProfileScheduleConstraintsNotification(short PowerProfileID, int StartAfter, int StopBefore,
-			IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public void execPowerProfileScheduleConstraintsNotification(short PowerProfileID, int StartAfter, int StopBefore, IEndPointRequestContext context) throws ApplianceException,
+			ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(PowerProfileID);
 		size += ZclDataTypeUI16.zclSize(StartAfter);
@@ -190,8 +185,8 @@ public class ZclPowerProfileClient extends ZclServiceCluster implements PowerPro
 		issueExec(zclFrame, 11, context);
 	}
 
-	public GetPowerProfilePriceExtendedResponse execGetPowerProfilePriceExtended(short Options, short PowerProfileID,
-			int PowerProfileStartTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public GetPowerProfilePriceExtendedResponse execGetPowerProfilePriceExtended(short Options, short PowerProfileID, int PowerProfileStartTime, IEndPointRequestContext context)
+			throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeBitmap8.zclSize(Options);
 		size += ZclDataTypeUI8.zclSize(PowerProfileID);
@@ -205,8 +200,7 @@ public class ZclPowerProfileClient extends ZclServiceCluster implements PowerPro
 		return (ZclGetPowerProfilePriceExtendedResponse.zclParse(zclResponseFrame));
 	}
 
-	protected IZclFrame parsePowerProfileRequest(PowerProfileServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parsePowerProfileRequest(PowerProfileServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short PowerProfileID = ZclDataTypeUI8.zclParse(zclFrame);
 		PowerProfileResponse r = o.execPowerProfileRequest(PowerProfileID, endPoint.getDefaultRequestContext());
 		int size = ZclPowerProfileResponse.zclSize(r);
@@ -216,8 +210,7 @@ public class ZclPowerProfileClient extends ZclServiceCluster implements PowerPro
 		return zclResponseFrame;
 	}
 
-	protected IZclFrame parsePowerProfileStateRequest(PowerProfileServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parsePowerProfileStateRequest(PowerProfileServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		PowerProfileStateResponse r = o.execPowerProfileStateRequest(endPoint.getDefaultRequestContext());
 		int size = ZclPowerProfileStateResponse.zclSize(r);
 		IZclFrame zclResponseFrame = zclFrame.createResponseFrame(size);
@@ -226,8 +219,7 @@ public class ZclPowerProfileClient extends ZclServiceCluster implements PowerPro
 		return zclResponseFrame;
 	}
 
-	protected IZclFrame parseEnergyPhasesScheduleNotification(PowerProfileServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseEnergyPhasesScheduleNotification(PowerProfileServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short PowerProfileID = ZclDataTypeUI8.zclParse(zclFrame);
 		int ZclScheduledPhaseSize;
 		ZclScheduledPhaseSize = ZclDataTypeBitmap8.zclParse(zclFrame);
@@ -241,8 +233,7 @@ public class ZclPowerProfileClient extends ZclServiceCluster implements PowerPro
 		return null;
 	}
 
-	protected IZclFrame parsePowerProfileScheduleConstraintsRequest(PowerProfileServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parsePowerProfileScheduleConstraintsRequest(PowerProfileServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short PowerProfileID = ZclDataTypeUI8.zclParse(zclFrame);
 		PowerProfileScheduleConstraintsResponse r = o.execPowerProfileScheduleConstraintsRequest(PowerProfileID, endPoint.getDefaultRequestContext());
 		int size = ZclPowerProfileScheduleConstraintsResponse.zclSize(r);
@@ -252,8 +243,7 @@ public class ZclPowerProfileClient extends ZclServiceCluster implements PowerPro
 		return zclResponseFrame;
 	}
 
-	protected IZclFrame parseEnergyPhasesScheduleStateRequest(PowerProfileServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseEnergyPhasesScheduleStateRequest(PowerProfileServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short PowerProfileID = ZclDataTypeUI8.zclParse(zclFrame);
 		EnergyPhasesScheduleStateResponse r = o.execEnergyPhasesScheduleStateRequest(PowerProfileID, endPoint.getDefaultRequestContext());
 		int size = ZclEnergyPhasesScheduleStateResponse.zclSize(r);
@@ -262,5 +252,5 @@ public class ZclPowerProfileClient extends ZclServiceCluster implements PowerPro
 		ZclEnergyPhasesScheduleStateResponse.zclSerialize(zclResponseFrame, r);
 		return zclResponseFrame;
 	}
-	
+
 }

@@ -51,18 +51,15 @@ public class ZclScenesServer extends ZclServiceCluster implements ScenesServer, 
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclScenesServer.ATTR_SceneCount_NAME, new ZclAttributeDescriptor(0,
-				ZclScenesServer.ATTR_SceneCount_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclScenesServer.ATTR_CurrentScene_NAME, new ZclAttributeDescriptor(1,
-				ZclScenesServer.ATTR_CurrentScene_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclScenesServer.ATTR_CurrentGroup_NAME, new ZclAttributeDescriptor(2,
-				ZclScenesServer.ATTR_CurrentGroup_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclScenesServer.ATTR_SceneValid_NAME, new ZclAttributeDescriptor(3,
-				ZclScenesServer.ATTR_SceneValid_NAME, new ZclDataTypeBoolean(), null, true, 1));
-		attributesMapByName.put(ZclScenesServer.ATTR_NameSupport_NAME, new ZclAttributeDescriptor(4,
-				ZclScenesServer.ATTR_NameSupport_NAME, new ZclDataTypeBitmap8(), null, true, 1));
-		attributesMapByName.put(ZclScenesServer.ATTR_LastConfiguredBy_NAME, new ZclAttributeDescriptor(5,
-				ZclScenesServer.ATTR_LastConfiguredBy_NAME, new ZclDataTypeIEEEAddress(), null, true, 1));
+		attributesMapByName.put(ZclScenesServer.ATTR_SceneCount_NAME, new ZclAttributeDescriptor(0, ZclScenesServer.ATTR_SceneCount_NAME, new ZclDataTypeUI8(), null, true, 1));
+		attributesMapByName.put(ZclScenesServer.ATTR_CurrentScene_NAME, new ZclAttributeDescriptor(1, ZclScenesServer.ATTR_CurrentScene_NAME, new ZclDataTypeUI8(), null, true, 1));
+		attributesMapByName
+				.put(ZclScenesServer.ATTR_CurrentGroup_NAME, new ZclAttributeDescriptor(2, ZclScenesServer.ATTR_CurrentGroup_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclScenesServer.ATTR_SceneValid_NAME, new ZclAttributeDescriptor(3, ZclScenesServer.ATTR_SceneValid_NAME, new ZclDataTypeBoolean(), null, true, 1));
+		attributesMapByName.put(ZclScenesServer.ATTR_NameSupport_NAME,
+				new ZclAttributeDescriptor(4, ZclScenesServer.ATTR_NameSupport_NAME, new ZclDataTypeBitmap8(), null, true, 1));
+		attributesMapByName.put(ZclScenesServer.ATTR_LastConfiguredBy_NAME, new ZclAttributeDescriptor(5, ZclScenesServer.ATTR_LastConfiguredBy_NAME, new ZclDataTypeIEEEAddress(),
+				null, true, 1));
 	}
 
 	public ZclScenesServer() throws ApplianceException {
@@ -119,8 +116,8 @@ public class ZclScenesServer extends ZclServiceCluster implements ScenesServer, 
 		return null;
 	}
 
-	public AddSceneResponse execAddScene(int GroupID, short SceneID, int TransitionTime, String SceneName,
-			byte[] ExtensionFieldSet, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public AddSceneResponse execAddScene(int GroupID, short SceneID, int TransitionTime, String SceneName, byte[] ExtensionFieldSet, IEndPointRequestContext context)
+			throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(GroupID);
 		size += ZclDataTypeUI8.zclSize(SceneID);
@@ -138,8 +135,7 @@ public class ZclScenesServer extends ZclServiceCluster implements ScenesServer, 
 		return (ZclAddSceneResponse.zclParse(zclResponseFrame));
 	}
 
-	public ViewSceneResponse execViewScene(int GroupID, short SceneID, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public ViewSceneResponse execViewScene(int GroupID, short SceneID, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(GroupID);
 		size += ZclDataTypeUI8.zclSize(SceneID);
@@ -151,8 +147,7 @@ public class ZclScenesServer extends ZclServiceCluster implements ScenesServer, 
 		return (ZclViewSceneResponse.zclParse(zclResponseFrame));
 	}
 
-	public RemoveSceneResponse execRemoveScene(int GroupID, short SceneID, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public RemoveSceneResponse execRemoveScene(int GroupID, short SceneID, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(GroupID);
 		size += ZclDataTypeUI8.zclSize(SceneID);
@@ -164,8 +159,7 @@ public class ZclScenesServer extends ZclServiceCluster implements ScenesServer, 
 		return (ZclRemoveSceneResponse.zclParse(zclResponseFrame));
 	}
 
-	public RemoveAllScenesResponse execRemoveAllScenes(int GroupID, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public RemoveAllScenesResponse execRemoveAllScenes(int GroupID, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(GroupID);
 		ZclFrame zclFrame = new ZclFrame(1, size);
@@ -175,8 +169,7 @@ public class ZclScenesServer extends ZclServiceCluster implements ScenesServer, 
 		return (ZclRemoveAllScenesResponse.zclParse(zclResponseFrame));
 	}
 
-	public void execStoreScene(int GroupID, short SceneID, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execStoreScene(int GroupID, short SceneID, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(GroupID);
 		size += ZclDataTypeUI8.zclSize(SceneID);
@@ -187,8 +180,7 @@ public class ZclScenesServer extends ZclServiceCluster implements ScenesServer, 
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execRecallScene(int GroupID, short SceneID, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execRecallScene(int GroupID, short SceneID, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(GroupID);
 		size += ZclDataTypeUI8.zclSize(SceneID);
@@ -199,8 +191,7 @@ public class ZclScenesServer extends ZclServiceCluster implements ScenesServer, 
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execGetSceneMembership(int GroupID, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execGetSceneMembership(int GroupID, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(GroupID);
 		ZclFrame zclFrame = new ZclFrame(1, size);
@@ -209,8 +200,8 @@ public class ZclScenesServer extends ZclServiceCluster implements ScenesServer, 
 		issueExec(zclFrame, 11, context);
 	}
 
-	protected IZclFrame parseStoreScenesResponse(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesClient o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseStoreScenesResponse(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesClient o, IZclFrame zclFrame) throws ApplianceException,
+			ServiceClusterException {
 		short Status = ZclDataTypeEnum8.zclParse(zclFrame);
 		int GroupID = ZclDataTypeUI16.zclParse(zclFrame);
 		short SceneID = ZclDataTypeUI8.zclParse(zclFrame);

@@ -32,8 +32,7 @@ import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeString;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUI16;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUI8;
 
-public class ZclApplianceIdentificationServer extends ZclServiceCluster implements ApplianceIdentificationServer,
-		ZigBeeDeviceListener {
+public class ZclApplianceIdentificationServer extends ZclServiceCluster implements ApplianceIdentificationServer, ZigBeeDeviceListener {
 
 	public final static short CLUSTER_ID = 2816;
 	final static HashMap attributesMapByName = new HashMap();
@@ -42,28 +41,28 @@ public class ZclApplianceIdentificationServer extends ZclServiceCluster implemen
 	static {
 		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_BasicIdentification_NAME, new ZclAttributeDescriptor(0,
 				ZclApplianceIdentificationServer.ATTR_BasicIdentification_NAME, new ZclDataTypeOctets(7), null, false, 1));
-		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_CompanyName_NAME, new ZclAttributeDescriptor(16,
-				ZclApplianceIdentificationServer.ATTR_CompanyName_NAME, new ZclDataTypeString(16), null, false, 1));
-		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_CompanyId_NAME, new ZclAttributeDescriptor(17,
-				ZclApplianceIdentificationServer.ATTR_CompanyId_NAME, new ZclDataTypeUI16(), null, false, 1));
-		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_BrandName_NAME, new ZclAttributeDescriptor(18,
-				ZclApplianceIdentificationServer.ATTR_BrandName_NAME, new ZclDataTypeString(16), null, false, 1));
-		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_BrandId_NAME, new ZclAttributeDescriptor(19,
-				ZclApplianceIdentificationServer.ATTR_BrandId_NAME, new ZclDataTypeUI16(), null, false, 1));
-		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_Model_NAME, new ZclAttributeDescriptor(20,
-				ZclApplianceIdentificationServer.ATTR_Model_NAME, new ZclDataTypeString(16), null, false, 1));
-		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_PartNumber_NAME, new ZclAttributeDescriptor(21,
-				ZclApplianceIdentificationServer.ATTR_PartNumber_NAME, new ZclDataTypeString(16), null, false, 1));
+		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_CompanyName_NAME, new ZclAttributeDescriptor(16, ZclApplianceIdentificationServer.ATTR_CompanyName_NAME,
+				new ZclDataTypeString(16), null, false, 1));
+		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_CompanyId_NAME, new ZclAttributeDescriptor(17, ZclApplianceIdentificationServer.ATTR_CompanyId_NAME,
+				new ZclDataTypeUI16(), null, false, 1));
+		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_BrandName_NAME, new ZclAttributeDescriptor(18, ZclApplianceIdentificationServer.ATTR_BrandName_NAME,
+				new ZclDataTypeString(16), null, false, 1));
+		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_BrandId_NAME, new ZclAttributeDescriptor(19, ZclApplianceIdentificationServer.ATTR_BrandId_NAME,
+				new ZclDataTypeUI16(), null, false, 1));
+		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_Model_NAME, new ZclAttributeDescriptor(20, ZclApplianceIdentificationServer.ATTR_Model_NAME,
+				new ZclDataTypeString(16), null, false, 1));
+		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_PartNumber_NAME, new ZclAttributeDescriptor(21, ZclApplianceIdentificationServer.ATTR_PartNumber_NAME,
+				new ZclDataTypeString(16), null, false, 1));
 		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_ProductRevision_NAME, new ZclAttributeDescriptor(22,
 				ZclApplianceIdentificationServer.ATTR_ProductRevision_NAME, new ZclDataTypeString(6), null, false, 1));
 		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_SoftwareRevision_NAME, new ZclAttributeDescriptor(23,
 				ZclApplianceIdentificationServer.ATTR_SoftwareRevision_NAME, new ZclDataTypeString(6), null, false, 1));
 		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_ProductTypeName_NAME, new ZclAttributeDescriptor(24,
 				ZclApplianceIdentificationServer.ATTR_ProductTypeName_NAME, new ZclDataTypeString(2), null, false, 1));
-		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_ProductTypeId_NAME, new ZclAttributeDescriptor(25,
-				ZclApplianceIdentificationServer.ATTR_ProductTypeId_NAME, new ZclDataTypeUI16(), null, false, 1));
-		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_CECEDSpecificationVersion_NAME, new ZclAttributeDescriptor(
-				26, ZclApplianceIdentificationServer.ATTR_CECEDSpecificationVersion_NAME, new ZclDataTypeUI8(), null, false, 1));
+		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_ProductTypeId_NAME, new ZclAttributeDescriptor(25, ZclApplianceIdentificationServer.ATTR_ProductTypeId_NAME,
+				new ZclDataTypeUI16(), null, false, 1));
+		attributesMapByName.put(ZclApplianceIdentificationServer.ATTR_CECEDSpecificationVersion_NAME, new ZclAttributeDescriptor(26,
+				ZclApplianceIdentificationServer.ATTR_CECEDSpecificationVersion_NAME, new ZclDataTypeUI8(), null, false, 1));
 	}
 
 	public ZclApplianceIdentificationServer() throws ApplianceException {

@@ -36,12 +36,11 @@ import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUTCTime;
 public class ZclTimeServer extends ZclServiceCluster implements TimeServer, ZigBeeDeviceListener {
 
 	public final static short CLUSTER_ID = 10;
-	
+
 	public static Map attributesMapByName = null;
 	public static Map attributesMapById = null;
 
-	static ZclAttributeDescriptor[] attributeDescriptors = {
-			new ZclAttributeDescriptor(0, ZclTimeServer.ATTR_Time_NAME, new ZclDataTypeUTCTime(), null, true, 0),
+	static ZclAttributeDescriptor[] attributeDescriptors = { new ZclAttributeDescriptor(0, ZclTimeServer.ATTR_Time_NAME, new ZclDataTypeUTCTime(), null, true, 0),
 			new ZclAttributeDescriptor(1, ZclTimeServer.ATTR_TimeStatus_NAME, new ZclDataTypeBitmap8(), null, true, 0),
 			new ZclAttributeDescriptor(2, ZclTimeServer.ATTR_TimeZone_NAME, new ZclDataTypeI32(), null, true, 0),
 			new ZclAttributeDescriptor(3, ZclTimeServer.ATTR_DstStart_NAME, new ZclDataTypeUI32(), null, true, 0),
@@ -283,9 +282,8 @@ public class ZclTimeServer extends ZclServiceCluster implements TimeServer, ZigB
 		return v;
 	}
 
-	public void setValidUntilTime(long ValidUntilTime, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setValidUntilTime(long ValidUntilTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

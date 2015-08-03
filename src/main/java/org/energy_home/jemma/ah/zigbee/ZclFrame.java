@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 public class ZclFrame implements IZclFrame {
 
 	private static final Logger LOG = LoggerFactory.getLogger(ZclFrame.class);
-	
+
 	byte[] data;
 
 	int pos = 0;

@@ -29,23 +29,19 @@ import org.energy_home.jemma.ah.zigbee.zcl.IZclAttributeDescriptor;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.ZclServiceCluster;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeEnum8;
 
-public class ZclThermostatUserInterfaceConfigurationServer extends ZclServiceCluster implements
-		ThermostatUserInterfaceConfigurationServer, ZigBeeDeviceListener {
+public class ZclThermostatUserInterfaceConfigurationServer extends ZclServiceCluster implements ThermostatUserInterfaceConfigurationServer, ZigBeeDeviceListener {
 
 	public final static short CLUSTER_ID = 516;
 	final static HashMap attributesMapByName = new HashMap();
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclThermostatUserInterfaceConfigurationServer.ATTR_TemperatureDisplayMode_NAME,
-				new ZclAttributeDescriptor(0, ZclThermostatUserInterfaceConfigurationServer.ATTR_TemperatureDisplayMode_NAME,
-						new ZclDataTypeEnum8(), null, true, 1));
-		attributesMapByName.put(ZclThermostatUserInterfaceConfigurationServer.ATTR_KeypadLockout_NAME, new ZclAttributeDescriptor(
-				1, ZclThermostatUserInterfaceConfigurationServer.ATTR_KeypadLockout_NAME, new ZclDataTypeEnum8(), null, true, 1));
-		attributesMapByName.put(ZclThermostatUserInterfaceConfigurationServer.ATTR_ScheduleProgrammingVisibility_NAME,
-				new ZclAttributeDescriptor(2,
-						ZclThermostatUserInterfaceConfigurationServer.ATTR_ScheduleProgrammingVisibility_NAME,
-						new ZclDataTypeEnum8(), null, true, 1));
+		attributesMapByName.put(ZclThermostatUserInterfaceConfigurationServer.ATTR_TemperatureDisplayMode_NAME, new ZclAttributeDescriptor(0,
+				ZclThermostatUserInterfaceConfigurationServer.ATTR_TemperatureDisplayMode_NAME, new ZclDataTypeEnum8(), null, true, 1));
+		attributesMapByName.put(ZclThermostatUserInterfaceConfigurationServer.ATTR_KeypadLockout_NAME, new ZclAttributeDescriptor(1,
+				ZclThermostatUserInterfaceConfigurationServer.ATTR_KeypadLockout_NAME, new ZclDataTypeEnum8(), null, true, 1));
+		attributesMapByName.put(ZclThermostatUserInterfaceConfigurationServer.ATTR_ScheduleProgrammingVisibility_NAME, new ZclAttributeDescriptor(2,
+				ZclThermostatUserInterfaceConfigurationServer.ATTR_ScheduleProgrammingVisibility_NAME, new ZclDataTypeEnum8(), null, true, 1));
 	}
 
 	public ZclThermostatUserInterfaceConfigurationServer() throws ApplianceException {
@@ -99,8 +95,7 @@ public class ZclThermostatUserInterfaceConfigurationServer extends ZclServiceClu
 		return v;
 	}
 
-	public short getScheduleProgrammingVisibility(IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public short getScheduleProgrammingVisibility(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Short objectResult = null;
 			objectResult = ((Short) getValidCachedAttributeObject(2, context.getMaxAgeForAttributeValues()));

@@ -47,10 +47,10 @@ public class ZclApplianceStatisticsServer extends ZclServiceCluster implements A
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclApplianceStatisticsServer.ATTR_LogMaxSize_NAME, new ZclAttributeDescriptor(0,
-				ZclApplianceStatisticsServer.ATTR_LogMaxSize_NAME, new ZclDataTypeUI32(), null, false, 1));
-		attributesMapByName.put(ZclApplianceStatisticsServer.ATTR_LogQueueMaxSize_NAME, new ZclAttributeDescriptor(1,
-				ZclApplianceStatisticsServer.ATTR_LogQueueMaxSize_NAME, new ZclDataTypeUI8(), null, false, 1));
+		attributesMapByName.put(ZclApplianceStatisticsServer.ATTR_LogMaxSize_NAME, new ZclAttributeDescriptor(0, ZclApplianceStatisticsServer.ATTR_LogMaxSize_NAME,
+				new ZclDataTypeUI32(), null, false, 1));
+		attributesMapByName.put(ZclApplianceStatisticsServer.ATTR_LogQueueMaxSize_NAME, new ZclAttributeDescriptor(1, ZclApplianceStatisticsServer.ATTR_LogQueueMaxSize_NAME,
+				new ZclDataTypeUI8(), null, false, 1));
 	}
 
 	public ZclApplianceStatisticsServer() throws ApplianceException {
@@ -96,15 +96,14 @@ public class ZclApplianceStatisticsServer extends ZclServiceCluster implements A
 		case 3:
 			responseZclFrame = parseStatisticsAvailable(c, zclFrame);
 			break;
-			
+
 		default:
-			throw new ZclException(ZCL.UNSUP_CLUSTER_COMMAND);	
+			throw new ZclException(ZCL.UNSUP_CLUSTER_COMMAND);
 		}
 		if (responseZclFrame == null) {
 			if (!zclFrame.isDefaultResponseDisabled()) {
 				responseZclFrame = getDefaultResponse(zclFrame, statusCode);
-			}
-			else {
+			} else {
 				return true;
 			}
 		}
@@ -133,13 +132,12 @@ public class ZclApplianceStatisticsServer extends ZclServiceCluster implements A
 		}
 		return null;
 	}
-	
+
 	protected Collection getAttributeDescriptors() {
 		return attributesMapByName.values();
 	}
 
-	public LogResponse execLogRequest(long LogID, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public LogResponse execLogRequest(long LogID, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI32.zclSize(LogID);
 		ZclFrame zclFrame = new ZclFrame(1, size);
@@ -156,8 +154,7 @@ public class ZclApplianceStatisticsServer extends ZclServiceCluster implements A
 		return (ZclLogQueueResponse.zclParse(zclResponseFrame));
 	}
 
-	protected IZclFrame parseLogNotification(ApplianceStatisticsClient o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseLogNotification(ApplianceStatisticsClient o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		long Timestamp = ZclDataTypeUTCTime.zclParse(zclFrame);
 		long LogID = ZclDataTypeUI32.zclParse(zclFrame);
 		long LogLength = ZclDataTypeUI32.zclParse(zclFrame);
@@ -167,8 +164,7 @@ public class ZclApplianceStatisticsServer extends ZclServiceCluster implements A
 		return null;
 	}
 
-	protected IZclFrame parseStatisticsAvailable(ApplianceStatisticsClient o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseStatisticsAvailable(ApplianceStatisticsClient o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		o.execStatisticsAvailable(endPoint.getDefaultRequestContext());
 		return null;
 	}

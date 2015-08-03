@@ -38,12 +38,11 @@ public class ZclOnOffServer extends ZclServiceCluster implements OnOffServer, Zi
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclOnOffServer.ATTR_OnOff_NAME, new ZclAttributeDescriptor(0, ZclOnOffServer.ATTR_OnOff_NAME,
-				new ZclDataTypeBoolean(), null, true, 1));
-		attributesMapByName.put(ZclOnOffServer.ATTR_MaxOnDuration_NAME, new ZclAttributeDescriptor(1,
-				ZclOnOffServer.ATTR_MaxOnDuration_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclOnOffServer.ATTR_CurrentOnDuration_NAME, new ZclAttributeDescriptor(2,
-				ZclOnOffServer.ATTR_CurrentOnDuration_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclOnOffServer.ATTR_OnOff_NAME, new ZclAttributeDescriptor(0, ZclOnOffServer.ATTR_OnOff_NAME, new ZclDataTypeBoolean(), null, true, 1));
+		attributesMapByName
+				.put(ZclOnOffServer.ATTR_MaxOnDuration_NAME, new ZclAttributeDescriptor(1, ZclOnOffServer.ATTR_MaxOnDuration_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclOnOffServer.ATTR_CurrentOnDuration_NAME, new ZclAttributeDescriptor(2, ZclOnOffServer.ATTR_CurrentOnDuration_NAME, new ZclDataTypeUI16(), null,
+				true, 1));
 	}
 
 	public ZclOnOffServer() throws ApplianceException {
@@ -89,8 +88,7 @@ public class ZclOnOffServer extends ZclServiceCluster implements OnOffServer, Zi
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execOnWithDuration(int OnDuration, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execOnWithDuration(int OnDuration, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(OnDuration);
 		ZclFrame zclFrame = new ZclFrame(1, size);

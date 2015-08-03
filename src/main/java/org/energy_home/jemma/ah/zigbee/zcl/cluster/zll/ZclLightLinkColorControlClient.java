@@ -104,8 +104,7 @@ public class ZclLightLinkColorControlClient extends ZclServiceCluster implements
 		return CLUSTER_ID;
 	}
 
-	protected IZclFrame parseMoveToHue(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseMoveToHue(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short Hue = ZclDataTypeUI8.zclParse(zclFrame);
 		short Direction = ZclDataTypeEnum8.zclParse(zclFrame);
 		int TransitionTime = ZclDataTypeUI16.zclParse(zclFrame);
@@ -113,16 +112,14 @@ public class ZclLightLinkColorControlClient extends ZclServiceCluster implements
 		return null;
 	}
 
-	protected IZclFrame parseMoveHue(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseMoveHue(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short MoveMode = ZclDataTypeEnum8.zclParse(zclFrame);
 		short Rate = ZclDataTypeUI8.zclParse(zclFrame);
 		o.execMoveHue(MoveMode, Rate, null);
 		return null;
 	}
 
-	protected IZclFrame parseStepHue(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseStepHue(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short StepMode = ZclDataTypeEnum8.zclParse(zclFrame);
 		short StepSize = ZclDataTypeUI8.zclParse(zclFrame);
 		int TransitionTime = ZclDataTypeUI16.zclParse(zclFrame);
@@ -130,24 +127,24 @@ public class ZclLightLinkColorControlClient extends ZclServiceCluster implements
 		return null;
 	}
 
-	protected IZclFrame parseMoveToSaturation(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseMoveToSaturation(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame) throws ApplianceException,
+			ServiceClusterException {
 		short Saturation = ZclDataTypeUI8.zclParse(zclFrame);
 		int TransitionTime = ZclDataTypeUI16.zclParse(zclFrame);
 		o.execMoveToSaturation(Saturation, TransitionTime, null);
 		return null;
 	}
 
-	protected IZclFrame parseMoveSaturation(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseMoveSaturation(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame) throws ApplianceException,
+			ServiceClusterException {
 		short MoveMode = ZclDataTypeEnum8.zclParse(zclFrame);
 		short Rate = ZclDataTypeUI8.zclParse(zclFrame);
 		o.execMoveSaturation(MoveMode, Rate, null);
 		return null;
 	}
 
-	protected IZclFrame parseStepSaturation(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseStepSaturation(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame) throws ApplianceException,
+			ServiceClusterException {
 		short StepMode = ZclDataTypeEnum8.zclParse(zclFrame);
 		short StepSize = ZclDataTypeUI8.zclParse(zclFrame);
 		int TransitionTime = ZclDataTypeUI16.zclParse(zclFrame);
@@ -155,8 +152,8 @@ public class ZclLightLinkColorControlClient extends ZclServiceCluster implements
 		return null;
 	}
 
-	protected IZclFrame parseMoveToHueAndSaturation(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseMoveToHueAndSaturation(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame) throws ApplianceException,
+			ServiceClusterException {
 		short Hue = ZclDataTypeUI8.zclParse(zclFrame);
 		short Saturation = ZclDataTypeUI8.zclParse(zclFrame);
 		int TransitionTime = ZclDataTypeUI16.zclParse(zclFrame);
@@ -164,8 +161,7 @@ public class ZclLightLinkColorControlClient extends ZclServiceCluster implements
 		return null;
 	}
 
-	protected IZclFrame parseMoveToColor(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseMoveToColor(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int ColorX = ZclDataTypeUI16.zclParse(zclFrame);
 		int ColorY = ZclDataTypeUI16.zclParse(zclFrame);
 		int TransitionTime = ZclDataTypeUI16.zclParse(zclFrame);
@@ -173,16 +169,14 @@ public class ZclLightLinkColorControlClient extends ZclServiceCluster implements
 		return null;
 	}
 
-	protected IZclFrame parseMoveColor(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseMoveColor(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int RateX = ZclDataTypeI16.zclParse(zclFrame);
 		int RateY = ZclDataTypeI16.zclParse(zclFrame);
 		o.execMoveColor(RateX, RateY, null);
 		return null;
 	}
 
-	protected IZclFrame parseStepColor(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseStepColor(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int StepX = ZclDataTypeI16.zclParse(zclFrame);
 		int StepY = ZclDataTypeI16.zclParse(zclFrame);
 		int TransitionTime = ZclDataTypeUI16.zclParse(zclFrame);
@@ -190,8 +184,8 @@ public class ZclLightLinkColorControlClient extends ZclServiceCluster implements
 		return null;
 	}
 
-	protected IZclFrame parseMoveToColorTemperature(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseMoveToColorTemperature(org.energy_home.jemma.ah.cluster.zigbee.zll.ColorControlServer o, IZclFrame zclFrame) throws ApplianceException,
+			ServiceClusterException {
 		short ColorTemperature = ZclDataTypeUI8.zclParse(zclFrame);
 		int TransitionTime = ZclDataTypeUI16.zclParse(zclFrame);
 		o.execMoveToColorTemperature(ColorTemperature, TransitionTime, null);

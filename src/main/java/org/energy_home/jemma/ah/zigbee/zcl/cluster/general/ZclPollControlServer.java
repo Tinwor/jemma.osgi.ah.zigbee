@@ -39,20 +39,20 @@ public class ZclPollControlServer extends ZclServiceCluster implements PollContr
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclPollControlServer.ATTR_ChecknInInterval_NAME, new ZclAttributeDescriptor(0,
-				ZclPollControlServer.ATTR_ChecknInInterval_NAME, new ZclDataTypeUI32(), null, true, 1));
-		attributesMapByName.put(ZclPollControlServer.ATTR_LongPollInterval_NAME, new ZclAttributeDescriptor(1,
-				ZclPollControlServer.ATTR_LongPollInterval_NAME, new ZclDataTypeUI32(), null, true, 1));
-		attributesMapByName.put(ZclPollControlServer.ATTR_ShortPollInterval_NAME, new ZclAttributeDescriptor(2,
-				ZclPollControlServer.ATTR_ShortPollInterval_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclPollControlServer.ATTR_FastPollTimeout_NAME, new ZclAttributeDescriptor(3,
-				ZclPollControlServer.ATTR_FastPollTimeout_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclPollControlServer.ATTR_CheckInIntervalMin_NAME, new ZclAttributeDescriptor(4,
-				ZclPollControlServer.ATTR_CheckInIntervalMin_NAME, new ZclDataTypeUI32(), null, true, 1));
-		attributesMapByName.put(ZclPollControlServer.ATTR_LongPollIntervalMin_NAME, new ZclAttributeDescriptor(5,
-				ZclPollControlServer.ATTR_LongPollIntervalMin_NAME, new ZclDataTypeUI32(), null, true, 1));
-		attributesMapByName.put(ZclPollControlServer.ATTR_FastPollTimeoutMax_NAME, new ZclAttributeDescriptor(6,
-				ZclPollControlServer.ATTR_FastPollTimeoutMax_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclPollControlServer.ATTR_ChecknInInterval_NAME, new ZclAttributeDescriptor(0, ZclPollControlServer.ATTR_ChecknInInterval_NAME,
+				new ZclDataTypeUI32(), null, true, 1));
+		attributesMapByName.put(ZclPollControlServer.ATTR_LongPollInterval_NAME, new ZclAttributeDescriptor(1, ZclPollControlServer.ATTR_LongPollInterval_NAME,
+				new ZclDataTypeUI32(), null, true, 1));
+		attributesMapByName.put(ZclPollControlServer.ATTR_ShortPollInterval_NAME, new ZclAttributeDescriptor(2, ZclPollControlServer.ATTR_ShortPollInterval_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclPollControlServer.ATTR_FastPollTimeout_NAME, new ZclAttributeDescriptor(3, ZclPollControlServer.ATTR_FastPollTimeout_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclPollControlServer.ATTR_CheckInIntervalMin_NAME, new ZclAttributeDescriptor(4, ZclPollControlServer.ATTR_CheckInIntervalMin_NAME,
+				new ZclDataTypeUI32(), null, true, 1));
+		attributesMapByName.put(ZclPollControlServer.ATTR_LongPollIntervalMin_NAME, new ZclAttributeDescriptor(5, ZclPollControlServer.ATTR_LongPollIntervalMin_NAME,
+				new ZclDataTypeUI32(), null, true, 1));
+		attributesMapByName.put(ZclPollControlServer.ATTR_FastPollTimeoutMax_NAME, new ZclAttributeDescriptor(6, ZclPollControlServer.ATTR_FastPollTimeoutMax_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 	}
 
 	public ZclPollControlServer() throws ApplianceException {
@@ -78,8 +78,7 @@ public class ZclPollControlServer extends ZclServiceCluster implements PollContr
 		return null;
 	}
 
-	public void execCheckInResponse(boolean StartFastPolling, int FastPollTimeout, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execCheckInResponse(boolean StartFastPolling, int FastPollTimeout, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeBoolean.zclSize(StartFastPolling);
 		size += ZclDataTypeUI16.zclSize(FastPollTimeout);
@@ -96,8 +95,7 @@ public class ZclPollControlServer extends ZclServiceCluster implements PollContr
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execSetLongPollInterval(long NewLongPollInterval, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execSetLongPollInterval(long NewLongPollInterval, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI32.zclSize(NewLongPollInterval);
 		ZclFrame zclFrame = new ZclFrame(1, size);
@@ -106,8 +104,7 @@ public class ZclPollControlServer extends ZclServiceCluster implements PollContr
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execSetShortPollInterval(int NewShortPollInterval, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execSetShortPollInterval(int NewShortPollInterval, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(NewShortPollInterval);
 		ZclFrame zclFrame = new ZclFrame(1, size);

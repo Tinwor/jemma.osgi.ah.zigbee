@@ -48,26 +48,16 @@ public class ZclPartitionServer extends ZclServiceCluster implements ZigBeeDevic
 
 	static {
 		attributeDescriptors = new ZclAttributeDescriptor[10];
-		attributeDescriptors[0] = new ZclAttributeDescriptor(0, ZclPartitionServer.ATTR_MaximumIncomingTransferSize_NAME,
-				new ZclDataTypeUI16(), null, true, 1);
-		attributeDescriptors[1] = new ZclAttributeDescriptor(1, ZclPartitionServer.ATTR_MaximumOutgoingTransferSize_NAME,
-				new ZclDataTypeUI16(), null, true, 1);
-		attributeDescriptors[2] = new ZclAttributeDescriptor(2, ZclPartitionServer.ATTR_PartitionedFrameSize_NAME,
-				new ZclDataTypeUI8(), null, true, 0);
-		attributeDescriptors[3] = new ZclAttributeDescriptor(3, ZclPartitionServer.ATTR_LargeFrameSize_NAME, new ZclDataTypeUI16(),
-				null, true, 0);
-		attributeDescriptors[4] = new ZclAttributeDescriptor(4, ZclPartitionServer.ATTR_NumberOfACKFrame_NAME,
-				new ZclDataTypeUI8(), null, true, 0);
-		attributeDescriptors[5] = new ZclAttributeDescriptor(5, ZclPartitionServer.ATTR_NACKTimeout_NAME, new ZclDataTypeUI16(),
-				null, true, 1);
-		attributeDescriptors[6] = new ZclAttributeDescriptor(6, ZclPartitionServer.ATTR_InterframeDelay_NAME, new ZclDataTypeUI8(),
-				null, true, 0);
-		attributeDescriptors[7] = new ZclAttributeDescriptor(7, ZclPartitionServer.ATTR_NumberOfSendRetries_NAME,
-				new ZclDataTypeUI8(), null, true, 1);
-		attributeDescriptors[8] = new ZclAttributeDescriptor(8, ZclPartitionServer.ATTR_SenderTimeout_NAME, new ZclDataTypeUI16(),
-				null, true, 1);
-		attributeDescriptors[9] = new ZclAttributeDescriptor(9, ZclPartitionServer.ATTR_ReceiverTimeout_NAME,
-				new ZclDataTypeUI16(), null, true, 1);
+		attributeDescriptors[0] = new ZclAttributeDescriptor(0, ZclPartitionServer.ATTR_MaximumIncomingTransferSize_NAME, new ZclDataTypeUI16(), null, true, 1);
+		attributeDescriptors[1] = new ZclAttributeDescriptor(1, ZclPartitionServer.ATTR_MaximumOutgoingTransferSize_NAME, new ZclDataTypeUI16(), null, true, 1);
+		attributeDescriptors[2] = new ZclAttributeDescriptor(2, ZclPartitionServer.ATTR_PartitionedFrameSize_NAME, new ZclDataTypeUI8(), null, true, 0);
+		attributeDescriptors[3] = new ZclAttributeDescriptor(3, ZclPartitionServer.ATTR_LargeFrameSize_NAME, new ZclDataTypeUI16(), null, true, 0);
+		attributeDescriptors[4] = new ZclAttributeDescriptor(4, ZclPartitionServer.ATTR_NumberOfACKFrame_NAME, new ZclDataTypeUI8(), null, true, 0);
+		attributeDescriptors[5] = new ZclAttributeDescriptor(5, ZclPartitionServer.ATTR_NACKTimeout_NAME, new ZclDataTypeUI16(), null, true, 1);
+		attributeDescriptors[6] = new ZclAttributeDescriptor(6, ZclPartitionServer.ATTR_InterframeDelay_NAME, new ZclDataTypeUI8(), null, true, 0);
+		attributeDescriptors[7] = new ZclAttributeDescriptor(7, ZclPartitionServer.ATTR_NumberOfSendRetries_NAME, new ZclDataTypeUI8(), null, true, 1);
+		attributeDescriptors[8] = new ZclAttributeDescriptor(8, ZclPartitionServer.ATTR_SenderTimeout_NAME, new ZclDataTypeUI16(), null, true, 1);
+		attributeDescriptors[9] = new ZclAttributeDescriptor(9, ZclPartitionServer.ATTR_ReceiverTimeout_NAME, new ZclDataTypeUI16(), null, true, 1);
 		attributesMapByName = fillAttributesMapsByName(attributeDescriptors, attributesMapByName);
 		attributesMapById = fillAttributesMapsById(attributeDescriptors, attributesMapById);
 	}
@@ -125,8 +115,8 @@ public class ZclPartitionServer extends ZclServiceCluster implements ZigBeeDevic
 		return (attributesMapByName.values());
 	}
 
-	public void execTransferPartitionedFrame(short FragmentationOptions, int PartitionIndicator, short FrameType,
-			byte[] PartitionedFrame, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public void execTransferPartitionedFrame(short FragmentationOptions, int PartitionIndicator, short FrameType, byte[] PartitionedFrame, IEndPointRequestContext context)
+			throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeBitmap8.zclSize(FragmentationOptions);
 		size += ZclDataTypeUI16.zclSize(PartitionIndicator);
@@ -141,8 +131,7 @@ public class ZclPartitionServer extends ZclServiceCluster implements ZigBeeDevic
 		issueExec(zclFrame, 11, context);
 	}
 
-	public ReadHandshakeParamResponse execReadHandshakeParam(IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public ReadHandshakeParamResponse execReadHandshakeParam(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		ZclFrame zclFrame = new ZclFrame(1);
 		zclFrame.setCommandId(1);
 		IZclFrame zclResponseFrame = issueExec(zclFrame, 1, context);
@@ -194,8 +183,7 @@ public class ZclPartitionServer extends ZclServiceCluster implements ZigBeeDevic
 		return v;
 	}
 
-	public void setPartitionedFrameSize(short PartitionedFrameSize, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setPartitionedFrameSize(short PartitionedFrameSize, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 2;
 		int size = 3;
 		size += ZclDataTypeUI8.zclSize(PartitionedFrameSize);
@@ -220,8 +208,7 @@ public class ZclPartitionServer extends ZclServiceCluster implements ZigBeeDevic
 		return v;
 	}
 
-	public void setLargeFrameSize(int LargeFrameSize, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setLargeFrameSize(int LargeFrameSize, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 3;
 		int size = 3;
 		size += ZclDataTypeUI16.zclSize(LargeFrameSize);
@@ -246,8 +233,7 @@ public class ZclPartitionServer extends ZclServiceCluster implements ZigBeeDevic
 		return v;
 	}
 
-	public void setNumberOfACKFrame(short NumberOfACKFrame, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setNumberOfACKFrame(short NumberOfACKFrame, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 4;
 		int size = 3;
 		size += ZclDataTypeUI8.zclSize(NumberOfACKFrame);
@@ -286,8 +272,7 @@ public class ZclPartitionServer extends ZclServiceCluster implements ZigBeeDevic
 		return v;
 	}
 
-	public void setInterframeDelay(short InterframeDelay, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setInterframeDelay(short InterframeDelay, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 6;
 		int size = 3;
 		size += ZclDataTypeUI8.zclSize(InterframeDelay);

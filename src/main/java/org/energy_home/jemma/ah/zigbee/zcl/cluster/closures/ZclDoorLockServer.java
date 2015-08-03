@@ -142,7 +142,8 @@ public class ZclDoorLockServer extends ZclServiceCluster implements DoorLockServ
 		IZclFrame responseZclFrame = null;
 		ZigBeeDevice device = getZigBeeDevice();
 		int statusCode = ZCL.SUCCESS;
-		org.energy_home.jemma.ah.cluster.zigbee.closures.DoorLockClient c = ((org.energy_home.jemma.ah.cluster.zigbee.closures.DoorLockClient) getSinglePeerCluster((DoorLockClient.class.getName())));
+		org.energy_home.jemma.ah.cluster.zigbee.closures.DoorLockClient c = ((org.energy_home.jemma.ah.cluster.zigbee.closures.DoorLockClient) getSinglePeerCluster((DoorLockClient.class
+				.getName())));
 		switch (commandId) {
 		case 32:
 			responseZclFrame = parseOperationEventNotification(c, zclFrame);
@@ -211,7 +212,8 @@ public class ZclDoorLockServer extends ZclServiceCluster implements DoorLockServ
 		return (ZclToggleResponse.zclParse(zclResponseFrame));
 	}
 
-	public UnlockWithTimeoutResponse execUnlockWithTimeout(int TimeoutInSeconds, String PINRFIDCode, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public UnlockWithTimeoutResponse execUnlockWithTimeout(int TimeoutInSeconds, String PINRFIDCode, IEndPointRequestContext context) throws ApplianceException,
+			ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(TimeoutInSeconds);
 		size += ZclDataTypeString.zclSize(PINRFIDCode);
@@ -233,7 +235,8 @@ public class ZclDoorLockServer extends ZclServiceCluster implements DoorLockServ
 		return (ZclGetLogRecordResponse.zclParse(zclResponseFrame));
 	}
 
-	public SetPINCodeResponse execSetPINCode(int UserID, short UserStatus, short UserType, String PIN, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public SetPINCodeResponse execSetPINCode(int UserID, short UserStatus, short UserType, String PIN, IEndPointRequestContext context) throws ApplianceException,
+			ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(UserID);
 		size += ZclDataTypeUI8.zclSize(UserStatus);
@@ -298,7 +301,8 @@ public class ZclDoorLockServer extends ZclServiceCluster implements DoorLockServ
 		return (ZclGetUserStatusResponse.zclParse(zclResponseFrame));
 	}
 
-	public SetWeekdayScheduleResponse execSetWeekdaySchedule(short ScheduleID, int UserID, short DaysMask, short StartHour, short StartMinute, short EndHour, short EndMinute, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public SetWeekdayScheduleResponse execSetWeekdaySchedule(short ScheduleID, int UserID, short DaysMask, short StartHour, short StartMinute, short EndHour, short EndMinute,
+			IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(ScheduleID);
 		size += ZclDataTypeUI16.zclSize(UserID);
@@ -344,7 +348,8 @@ public class ZclDoorLockServer extends ZclServiceCluster implements DoorLockServ
 		return (ZclClearWeekdayScheduleResponse.zclParse(zclResponseFrame));
 	}
 
-	public SetYearDayScheduleResponse execSetYearDaySchedule(short ScheduleID, int UserID, long ZigBeeLocalStartTime, long ZigBeeLocalEndTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public SetYearDayScheduleResponse execSetYearDaySchedule(short ScheduleID, int UserID, long ZigBeeLocalStartTime, long ZigBeeLocalEndTime, IEndPointRequestContext context)
+			throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(ScheduleID);
 		size += ZclDataTypeUI16.zclSize(UserID);
@@ -384,7 +389,8 @@ public class ZclDoorLockServer extends ZclServiceCluster implements DoorLockServ
 		return (ZclClearYearDayScheduleResponse.zclParse(zclResponseFrame));
 	}
 
-	public SetHolidayScheduleResponse execSetHolidaySchedule(short HolidayScheduleID, long ZigBeeLocalStartTime, long ZigBeeLocalEndTime, short OperatingModeDuringHoliday, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public SetHolidayScheduleResponse execSetHolidaySchedule(short HolidayScheduleID, long ZigBeeLocalStartTime, long ZigBeeLocalEndTime, short OperatingModeDuringHoliday,
+			IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(HolidayScheduleID);
 		size += ZclDataTypeUI32.zclSize(ZigBeeLocalStartTime);
@@ -442,7 +448,8 @@ public class ZclDoorLockServer extends ZclServiceCluster implements DoorLockServ
 		return (ZclGetUsertypeResponse.zclParse(zclResponseFrame));
 	}
 
-	public SetRFIDCodeResponse execSetRFIDCode(int UserID, short UserStatus, short UserType, String RFIDCode, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public SetRFIDCodeResponse execSetRFIDCode(int UserID, short UserStatus, short UserType, String RFIDCode, IEndPointRequestContext context) throws ApplianceException,
+			ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(UserID);
 		size += ZclDataTypeUI8.zclSize(UserStatus);
@@ -485,7 +492,8 @@ public class ZclDoorLockServer extends ZclServiceCluster implements DoorLockServ
 		return (ZclClearAllRFIDCodesResponse.zclParse(zclResponseFrame));
 	}
 
-	protected IZclFrame parseOperationEventNotification(org.energy_home.jemma.ah.cluster.zigbee.closures.DoorLockClient o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseOperationEventNotification(org.energy_home.jemma.ah.cluster.zigbee.closures.DoorLockClient o, IZclFrame zclFrame) throws ApplianceException,
+			ServiceClusterException {
 		short OperationEventSource = ZclDataTypeUI8.zclParse(zclFrame);
 		short OperationEventCode = ZclDataTypeUI8.zclParse(zclFrame);
 		int UserID = ZclDataTypeUI16.zclParse(zclFrame);
@@ -499,7 +507,8 @@ public class ZclDoorLockServer extends ZclServiceCluster implements DoorLockServ
 		return null;
 	}
 
-	protected IZclFrame parseProgrammingEventNotification(org.energy_home.jemma.ah.cluster.zigbee.closures.DoorLockClient o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseProgrammingEventNotification(org.energy_home.jemma.ah.cluster.zigbee.closures.DoorLockClient o, IZclFrame zclFrame) throws ApplianceException,
+			ServiceClusterException {
 		short ProgramEventSource = ZclDataTypeUI8.zclParse(zclFrame);
 		short OperationEventCode = ZclDataTypeUI8.zclParse(zclFrame);
 		int UserID = ZclDataTypeUI16.zclParse(zclFrame);

@@ -41,8 +41,7 @@ public class ZclBasicServer extends ZclServiceCluster implements BasicServer, Zi
 	static Map attributesMapByName = null;
 	static Map attributesMapById = null;
 
-	static ZclAttributeDescriptor[] attributeDescriptors = {
-			new ZclAttributeDescriptor(0, ZclBasicServer.ATTR_ZCLVersion_NAME, new ZclDataTypeUI8(), null, true, 1),
+	static ZclAttributeDescriptor[] attributeDescriptors = { new ZclAttributeDescriptor(0, ZclBasicServer.ATTR_ZCLVersion_NAME, new ZclDataTypeUI8(), null, true, 1),
 			new ZclAttributeDescriptor(1, ZclBasicServer.ATTR_ApplicationVersion_NAME, new ZclDataTypeUI8(), null, true, 1),
 			new ZclAttributeDescriptor(2, ZclBasicServer.ATTR_StackVersion_NAME, new ZclDataTypeUI8(), null, true, 1),
 			new ZclAttributeDescriptor(3, ZclBasicServer.ATTR_HWVersion_NAME, new ZclDataTypeUI8(), null, true, 1),
@@ -193,8 +192,7 @@ public class ZclBasicServer extends ZclServiceCluster implements BasicServer, Zi
 		return v;
 	}
 
-	public void setLocationDescription(String LocationDescription, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setLocationDescription(String LocationDescription, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 16;
 		int size = 3;
 		size += ZclDataTypeString.zclSize(LocationDescription);
@@ -219,8 +217,7 @@ public class ZclBasicServer extends ZclServiceCluster implements BasicServer, Zi
 		return v;
 	}
 
-	public void setPhysicalEnvironment(short PhysicalEnvironment, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setPhysicalEnvironment(short PhysicalEnvironment, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 17;
 		int size = 3;
 		size += ZclDataTypeEnum8.zclSize(PhysicalEnvironment);
@@ -245,8 +242,7 @@ public class ZclBasicServer extends ZclServiceCluster implements BasicServer, Zi
 		return v;
 	}
 
-	public void setDeviceEnabled(boolean DeviceEnabled, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setDeviceEnabled(boolean DeviceEnabled, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 18;
 		int size = 3;
 		size += ZclDataTypeBoolean.zclSize(DeviceEnabled);
@@ -296,8 +292,7 @@ public class ZclBasicServer extends ZclServiceCluster implements BasicServer, Zi
 		return v;
 	}
 
-	public void setDisableLocalConfig(short DisableLocalConfig, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setDisableLocalConfig(short DisableLocalConfig, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 20;
 		int size = 3;
 		size += ZclDataTypeBitmap8.zclSize(DisableLocalConfig);

@@ -43,8 +43,7 @@ public class ZclAlarmsServer extends ZclServiceCluster implements AlarmsServer, 
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclAlarmsServer.ATTR_AlarmCount_NAME, new ZclAttributeDescriptor(0,
-				ZclAlarmsServer.ATTR_AlarmCount_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclAlarmsServer.ATTR_AlarmCount_NAME, new ZclAttributeDescriptor(0, ZclAlarmsServer.ATTR_AlarmCount_NAME, new ZclDataTypeUI16(), null, true, 1));
 	}
 
 	public ZclAlarmsServer() throws ApplianceException {
@@ -101,8 +100,7 @@ public class ZclAlarmsServer extends ZclServiceCluster implements AlarmsServer, 
 		return null;
 	}
 
-	public void execResetAlarm(short AlarmCode, int ClusterIdentifier, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execResetAlarm(short AlarmCode, int ClusterIdentifier, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(AlarmCode);
 		size += ZclDataTypeUI16.zclSize(ClusterIdentifier);

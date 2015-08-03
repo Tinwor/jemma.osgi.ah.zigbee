@@ -202,8 +202,7 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 
 		PartitionedFrame[] pFrame = state.partitionedFrames;
 
-		int frameLength = ((pFrame.length - 1) * state.PartitionedFrameSize)
-				+ pFrame[state.partitionedFrames.length - 1].getLength();
+		int frameLength = ((pFrame.length - 1) * state.PartitionedFrameSize) + pFrame[state.partitionedFrames.length - 1].getLength();
 
 		byte[] frame = new byte[frameLength];
 
@@ -218,8 +217,7 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 		return zclFrame;
 	}
 
-	protected void execMultipleNACK(State state, short ACKOptions, int FirstFrameID, int[] ackList) throws ApplianceException,
-			ServiceClusterException {
+	protected void execMultipleNACK(State state, short ACKOptions, int FirstFrameID, int[] ackList) throws ApplianceException, ServiceClusterException {
 		boolean NACKIDLength16 = false;
 		int size = 0;
 
@@ -262,7 +260,7 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 		try {
 			res = device.post((short) getClusterId(), zclFrame);
 		} catch (Exception e) {
-			LOG.error("Exception on execMultipleNACK",e);
+			LOG.error("Exception on execMultipleNACK", e);
 		}
 		if (!res) {
 			throw new ApplianceException(POST_FAILED_MESSAGE);
@@ -333,15 +331,14 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 		return false;
 	}
 
-	private static final Logger LOG = LoggerFactory.getLogger( ZclPartitionServer.class );
+	private static final Logger LOG = LoggerFactory.getLogger(ZclPartitionServer.class);
 
 	private Object lock = new Object();
 	private Map peerAttributeDescriptorsMap;
 
-	protected IZclFrame parseTransferPartitionedFrame(PartitionServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException, ZclException {
+	protected IZclFrame parseTransferPartitionedFrame(PartitionServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException, ZclException {
 		synchronized (lock) {
-			State rcvrState = this.getState((byte)zclFrame.getSequenceNumber());
+			State rcvrState = this.getState((byte) zclFrame.getSequenceNumber());
 
 			if (rcvrState == null) {
 				throw new ZclException("Unexpected PartitionedFrame received", ZCL.FAILURE);
@@ -480,8 +477,9 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 	private State createState(int clusterId, IZclFrame zclFrame) {
 		long hash = calculateTxRxHash(clusterId, zclFrame);
 		Long h = new Long(hash);
-		// FIXME: probably rcvState must be initialized with the current value of the server attributes
-		
+		// FIXME: probably rcvState must be initialized with the current value
+		// of the server attributes
+
 		State state = new State(clusterId, zclFrame.getSequenceNumber());
 		this.states.put(h, state);
 		state.sequenceNumber = zclFrame.getSequenceNumber() & 0xFF;
@@ -493,8 +491,7 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 		this.statesBySequenceNumber.remove(state.sequenceNumber);
 	}
 
-	protected IZclFrame parseReadHandshakeParam(PartitionServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseReadHandshakeParam(PartitionServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		ReadHandshakeParamResponse r = new ReadHandshakeParamResponse();
 
 		int size = ZclReadHandshakeParamResponse.zclSize(r);
@@ -504,8 +501,7 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 		return zclResponseFrame;
 	}
 
-	protected IZclFrame parseWriteHandshakeParam(PartitionServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseWriteHandshakeParam(PartitionServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 
 		if (this.peerAttributeDescriptorsMap == null) {
 			this.peerAttributeDescriptorsMap = new HashMap();
@@ -530,7 +526,9 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 			try {
 				attrId = ZclDataTypeUI16.zclParse(zclFrame);
 			} catch (Throwable e) {
-				LOG.debug("No more attributes",e); //FIXME this seems not critical - why catching this with an exception ?
+				LOG.debug("No more attributes", e); // FIXME this seems not
+													// critical - why catching
+													// this with an exception ?
 				break;
 			}
 
@@ -566,32 +564,27 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 
 					case 0x0005:
 						rcvState.NACKTimeout = ZclDataTypeUI16.zclParse(zclFrame);
-						LOG.warn("WriteHanshakeParameter requested to change the dependent attribute NACKTimeout to "
-								+ rcvState.NACKTimeout);
+						LOG.warn("WriteHanshakeParameter requested to change the dependent attribute NACKTimeout to " + rcvState.NACKTimeout);
 						break;
 
 					case 0x0006:
 						rcvState.InterframeDelay = ZclDataTypeUI8.zclParse(zclFrame);
-						LOG.warn("WriteHanshakeParameter requested to change the dependent attribute InterframeDelay to "
-								+ rcvState.InterframeDelay);
+						LOG.warn("WriteHanshakeParameter requested to change the dependent attribute InterframeDelay to " + rcvState.InterframeDelay);
 						break;
 
 					case 0x0007:
 						rcvState.NumberOfSendRetries = ZclDataTypeUI8.zclParse(zclFrame);
-						LOG.warn("WriteHanshakeParameter requested to change the dependent attribute NumberOfSendRetries to "
-								+ rcvState.NumberOfSendRetries);
+						LOG.warn("WriteHanshakeParameter requested to change the dependent attribute NumberOfSendRetries to " + rcvState.NumberOfSendRetries);
 						break;
 
 					case 0x0008:
 						rcvState.SenderTimeout = ZclDataTypeUI16.zclParse(zclFrame);
-						LOG.warn("WriteHanshakeParameter requested to change the dependent attribute SenderTimeout to "
-								+ rcvState.SenderTimeout);
+						LOG.warn("WriteHanshakeParameter requested to change the dependent attribute SenderTimeout to " + rcvState.SenderTimeout);
 						break;
 
 					case 0x0009:
 						rcvState.ReceiverTimeout = ZclDataTypeUI16.zclParse(zclFrame);
-						LOG.warn("WriteHanshakeParameter requested to change the dependent attribute ReceiverTimeout to "
-								+ rcvState.ReceiverTimeout);
+						LOG.warn("WriteHanshakeParameter requested to change the dependent attribute ReceiverTimeout to " + rcvState.ReceiverTimeout);
 						break;
 
 					default:
@@ -698,8 +691,7 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 		return this.PartitionedFrameSize;
 	}
 
-	public void setPartitionedFrameSize(short PartitionedFrameSize, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setPartitionedFrameSize(short PartitionedFrameSize, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		this.PartitionedFrameSize = PartitionedFrameSize;
 	}
 
@@ -707,8 +699,7 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 		return this.LargeFrameSize;
 	}
 
-	public void setLargeFrameSize(int LargeFrameSize, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setLargeFrameSize(int LargeFrameSize, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		this.LargeFrameSize = LargeFrameSize;
 	}
 
@@ -716,8 +707,7 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 		return this.NumberOfACKFrame;
 	}
 
-	public void setNumberOfACKFrame(short NumberOfACKFrame, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setNumberOfACKFrame(short NumberOfACKFrame, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		this.NumberOfACKFrame = NumberOfACKFrame;
 	}
 
@@ -729,8 +719,7 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 		return this.InterframeDelay;
 	}
 
-	public void setInterframeDelay(short InterframeDelay, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setInterframeDelay(short InterframeDelay, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		this.InterframeDelay = InterframeDelay;
 	}
 
@@ -746,13 +735,12 @@ public class ZclPartitionServerImpl extends ZclPartitionClient implements Runnab
 		return this.ReceiverTimeout;
 	}
 
-	public void execTransferPartitionedFrame(short FragmentationOptions, int PartitionIndicator, short FrameType,
-			byte[] PartitionedFrame, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+	public void execTransferPartitionedFrame(short FragmentationOptions, int PartitionIndicator, short FrameType, byte[] PartitionedFrame, IEndPointRequestContext context)
+			throws ApplianceException, ServiceClusterException {
 		// NOT USED, we prefer to override the parsePartitioningFrame method
 	}
 
-	public ReadHandshakeParamResponse execReadHandshakeParam(IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public ReadHandshakeParamResponse execReadHandshakeParam(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		// NOT USED, we prefer to override the parseReadHandshakeParam method
 		return null;
 	}

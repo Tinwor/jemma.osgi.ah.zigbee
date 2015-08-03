@@ -102,8 +102,7 @@ public class ZclIdentifyClient extends ZclServiceCluster implements IdentifyClie
 		}
 	}
 
-	protected boolean fillAttributeRecord(IZclFrame zclResponseFrame, int attrId) throws ServiceClusterException,
-			ApplianceException {
+	protected boolean fillAttributeRecord(IZclFrame zclResponseFrame, int attrId) throws ServiceClusterException, ApplianceException {
 		IdentifyServer c = ((IdentifyServer) getSinglePeerCluster((IdentifyServer.class.getName())));
 
 		switch (attrId) {

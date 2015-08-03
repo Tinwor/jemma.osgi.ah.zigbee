@@ -886,7 +886,7 @@ public class ZigBeeManagerImpl implements TimerListener, APSMessageListener, Gat
 				InstallationStatus installingDevice = getInstallingDevice(a);
 				if (installingDevice == null) {
 					Exception st = new Exception();
-					LOG.error("installingDevice was null, printing stacktrace",st);
+					LOG.error("installingDevice was null, printing stacktrace", st);
 				}
 
 				if ((status.getCode() != GatewayConstants.SUCCESS) || (installingDevice == null)) {
@@ -896,7 +896,8 @@ public class ZigBeeManagerImpl implements TimerListener, APSMessageListener, Gat
 					installingDevice = getInstallingDevice(InstallationStatus.WAITING_FOR_SERVICE_DESCRIPTOR);
 					if (installingDevice != null) {
 						a = installingDevice.getAddress();
-						LOG.error(getIeeeAddressHex(a) + ": serviceDescriptorRetrieved callback returned error code " + status.getCode() + "'. Guessed address '" + getIeeeAddressHex(a));
+						LOG.error(getIeeeAddressHex(a) + ": serviceDescriptorRetrieved callback returned error code " + status.getCode() + "'. Guessed address '"
+								+ getIeeeAddressHex(a));
 
 						// retries until retry counter goes to 0
 						if (installingDevice.getRetryCounter() > 0) {
@@ -1016,7 +1017,8 @@ public class ZigBeeManagerImpl implements TimerListener, APSMessageListener, Gat
 			ActiveEndpoints ep = (ActiveEndpoints) activeEndpoints.get(i);
 			try {
 				ServiceDescriptor service = installingDevice.getServiceDescriptor(ep.getEndPoint());
-				endPoints[i] = service.getSimpleDescriptor().getApplicationProfileIdentifier() + "." + service.getSimpleDescriptor().getApplicationDeviceIdentifier() + "." + new Short(service.getEndPoint());
+				endPoints[i] = service.getSimpleDescriptor().getApplicationProfileIdentifier() + "." + service.getSimpleDescriptor().getApplicationDeviceIdentifier() + "."
+						+ new Short(service.getEndPoint());
 				ZigBeeDevice device = createDevice(installingDevice, service, endPoints);
 				if (device != null) {
 					// add the device to our db
@@ -1513,7 +1515,7 @@ public class ZigBeeManagerImpl implements TimerListener, APSMessageListener, Gat
 							// start gateway device
 							gateway.startGatewayDevice(0);
 						} catch (Exception e) {
-							LOG.error("Exception in dongleResetResult",e);
+							LOG.error("Exception in dongleResetResult", e);
 						}
 					}
 
@@ -1576,7 +1578,7 @@ public class ZigBeeManagerImpl implements TimerListener, APSMessageListener, Gat
 		try {
 			gateway.setGatewayEventListener(this);
 		} catch (Exception e1) {
-			LOG.error("Error setting myself as Gateway event listener",e1);
+			LOG.error("Error setting myself as Gateway event listener", e1);
 			// FIXME: what I have to do here?
 		}
 
@@ -1646,7 +1648,7 @@ public class ZigBeeManagerImpl implements TimerListener, APSMessageListener, Gat
 					}
 				}
 			} catch (ConcurrentModificationException e) {
-				LOG.error("Error unregistering a device service because of concurrent modification",e);
+				LOG.error("Error unregistering a device service because of concurrent modification", e);
 				return;
 			}
 		}
@@ -1679,7 +1681,8 @@ public class ZigBeeManagerImpl implements TimerListener, APSMessageListener, Gat
 				String nodeIeeeAddressHex = getIeeeAddressHex(installingDevice.getAddress());
 
 				if (status.getCode() != 0) {
-					LOG.error(nodeIeeeAddressHex + ": nodeDescriptorRetrieved callback returned error code " + status.getCode() + " Message:" + status.getMessage() + " '. Guessed pid '" + nodePid);
+					LOG.error(nodeIeeeAddressHex + ": nodeDescriptorRetrieved callback returned error code " + status.getCode() + " Message:" + status.getMessage()
+							+ " '. Guessed pid '" + nodePid);
 					if (installingDevice.getRetryCounter() > 0) {
 						try {
 							gateway.getNodeDescriptor(timeout, installingDevice.getAddress());

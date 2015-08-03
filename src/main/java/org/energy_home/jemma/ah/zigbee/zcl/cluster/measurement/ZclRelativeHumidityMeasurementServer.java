@@ -29,8 +29,7 @@ import org.energy_home.jemma.ah.zigbee.zcl.IZclAttributeDescriptor;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.ZclServiceCluster;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUI16;
 
-public class ZclRelativeHumidityMeasurementServer extends ZclServiceCluster implements RelativeHumidityMeasurementServer,
-		ZigBeeDeviceListener {
+public class ZclRelativeHumidityMeasurementServer extends ZclServiceCluster implements RelativeHumidityMeasurementServer, ZigBeeDeviceListener {
 
 	public final static short CLUSTER_ID = 1029;
 	final static HashMap attributesMapByName = new HashMap();
@@ -43,8 +42,8 @@ public class ZclRelativeHumidityMeasurementServer extends ZclServiceCluster impl
 				ZclRelativeHumidityMeasurementServer.ATTR_MinMeasuredValue_NAME, new ZclDataTypeUI16(), null, true, 1));
 		attributesMapByName.put(ZclRelativeHumidityMeasurementServer.ATTR_MaxMeasuredValue_NAME, new ZclAttributeDescriptor(2,
 				ZclRelativeHumidityMeasurementServer.ATTR_MaxMeasuredValue_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclRelativeHumidityMeasurementServer.ATTR_Tolerance_NAME, new ZclAttributeDescriptor(3,
-				ZclRelativeHumidityMeasurementServer.ATTR_Tolerance_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclRelativeHumidityMeasurementServer.ATTR_Tolerance_NAME, new ZclAttributeDescriptor(3, ZclRelativeHumidityMeasurementServer.ATTR_Tolerance_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 	}
 
 	public ZclRelativeHumidityMeasurementServer() throws ApplianceException {

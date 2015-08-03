@@ -73,15 +73,13 @@ public class ZclIRTransmitterClient extends ZclServiceCluster implements IRTrans
 		return CLUSTER_ID;
 	}
 
-	protected IZclFrame parseStudy(org.energy_home.jemma.ah.cluster.zigbee.wulian.IRTransmitterServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseStudy(org.energy_home.jemma.ah.cluster.zigbee.wulian.IRTransmitterServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int StudyFlag = ZclDataTypeUI16.zclParse(zclFrame);
 		o.execStudy(StudyFlag, null);
 		return null;
 	}
 
-	protected IZclFrame parseControl(org.energy_home.jemma.ah.cluster.zigbee.wulian.IRTransmitterServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseControl(org.energy_home.jemma.ah.cluster.zigbee.wulian.IRTransmitterServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int ControlFlag = ZclDataTypeUI16.zclParse(zclFrame);
 		o.execControl(ControlFlag, null);
 		return null;

@@ -31,8 +31,7 @@ import org.energy_home.jemma.ah.zigbee.zcl.lib.ZclServiceCluster;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUI24;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUI8;
 
-public class ZclApplianceEventsAndAlertsServer extends ZclServiceCluster implements ApplianceEventsAndAlertsServer,
-		ZigBeeDeviceListener {
+public class ZclApplianceEventsAndAlertsServer extends ZclServiceCluster implements ApplianceEventsAndAlertsServer, ZigBeeDeviceListener {
 
 	public final static short CLUSTER_ID = 2818;
 
@@ -53,8 +52,7 @@ public class ZclApplianceEventsAndAlertsServer extends ZclServiceCluster impleme
 		IZclFrame responseZclFrame = null;
 		ZigBeeDevice device = getZigBeeDevice();
 		int statusCode = ZCL.SUCCESS;
-		ApplianceEventsAndAlertsClient c = ((ApplianceEventsAndAlertsClient) getSinglePeerClusterNoException((ApplianceEventsAndAlertsClient.class
-				.getName())));
+		ApplianceEventsAndAlertsClient c = ((ApplianceEventsAndAlertsClient) getSinglePeerClusterNoException((ApplianceEventsAndAlertsClient.class.getName())));
 		switch (commandId) {
 		case 1:
 			responseZclFrame = parseAlertsNotification(c, zclFrame);
@@ -62,17 +60,16 @@ public class ZclApplianceEventsAndAlertsServer extends ZclServiceCluster impleme
 		case 2:
 			responseZclFrame = parseEventNotification(c, zclFrame);
 			break;
-		
+
 		default:
 			return false;
 		}
-		
+
 		if (responseZclFrame == null) {
 			if (!zclFrame.isDefaultResponseDisabled()) {
 				responseZclFrame = getDefaultResponse(zclFrame, statusCode);
 			}
-		}
-		else {
+		} else {
 			device.post(ZclApplianceEventsAndAlertsServer.CLUSTER_ID, responseZclFrame);
 		}
 		return true;
@@ -89,8 +86,7 @@ public class ZclApplianceEventsAndAlertsServer extends ZclServiceCluster impleme
 		return (ZclGetAlertsResponse.zclParse(zclResponseFrame));
 	}
 
-	protected IZclFrame parseAlertsNotification(ApplianceEventsAndAlertsClient o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseAlertsNotification(ApplianceEventsAndAlertsClient o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int size;
 		size = ZclDataTypeUI8.zclParse(zclFrame);
 		int[] Events;
@@ -101,20 +97,19 @@ public class ZclApplianceEventsAndAlertsServer extends ZclServiceCluster impleme
 		}
 		if (o == null)
 			return null;
-		//TODO: check merge, following line was different in 3.3.0
-		//o.execAlertsNotification(Events, null);
+		// TODO: check merge, following line was different in 3.3.0
+		// o.execAlertsNotification(Events, null);
 		o.execAlertsNotification(Events, endPoint.getDefaultRequestContext());
 		return null;
 	}
 
-	protected IZclFrame parseEventNotification(ApplianceEventsAndAlertsClient o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseEventNotification(ApplianceEventsAndAlertsClient o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		short EventHeader = ZclDataTypeUI8.zclParse(zclFrame);
 		short EventIdentification = ZclDataTypeUI8.zclParse(zclFrame);
-		
+
 		if (o == null)
 			return null;
-		
+
 		o.execEventNotification(EventHeader, EventIdentification, null);
 		return null;
 	}

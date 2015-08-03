@@ -79,8 +79,8 @@ public class ZclApplianceStatisticsClient extends ZclServiceCluster implements A
 		return CLUSTER_ID;
 	}
 
-	public void execLogNotification(long Timestamp, long LogID, long LogLength, byte[] LogPayload, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execLogNotification(long Timestamp, long LogID, long LogLength, byte[] LogPayload, IEndPointRequestContext context) throws ApplianceException,
+			ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUTCTime.zclSize(Timestamp);
 		size += ZclDataTypeUI32.zclSize(LogID);
@@ -101,8 +101,7 @@ public class ZclApplianceStatisticsClient extends ZclServiceCluster implements A
 		issueExec(zclFrame, 11, context);
 	}
 
-	protected IZclFrame parseLogRequest(ApplianceStatisticsServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseLogRequest(ApplianceStatisticsServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		long LogID = ZclDataTypeUI32.zclParse(zclFrame);
 		LogResponse r = o.execLogRequest(LogID, endPoint.getDefaultRequestContext());
 		int size = ZclLogResponse.zclSize(r);
@@ -112,8 +111,7 @@ public class ZclApplianceStatisticsClient extends ZclServiceCluster implements A
 		return zclResponseFrame;
 	}
 
-	protected IZclFrame parseLogQueueRequest(ApplianceStatisticsServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseLogQueueRequest(ApplianceStatisticsServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		LogQueueResponse r = o.execLogQueueRequest(endPoint.getDefaultRequestContext());
 		int size = ZclLogQueueResponse.zclSize(r);
 		IZclFrame zclResponseFrame = zclFrame.createResponseFrame(size);

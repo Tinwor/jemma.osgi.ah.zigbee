@@ -37,12 +37,12 @@ public class ZclIRTransmitterServer extends ZclServiceCluster implements IRTrans
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclIRTransmitterServer.ATTR_CurrentFlag_NAME, new ZclAttributeDescriptor(0,
-				ZclIRTransmitterServer.ATTR_CurrentFlag_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclIRTransmitterServer.ATTR_TotalStudiedFlag_NAME, new ZclAttributeDescriptor(1,
-				ZclIRTransmitterServer.ATTR_TotalStudiedFlag_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclIRTransmitterServer.ATTR_MaxCount_NAME, new ZclAttributeDescriptor(2,
-				ZclIRTransmitterServer.ATTR_MaxCount_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclIRTransmitterServer.ATTR_CurrentFlag_NAME, new ZclAttributeDescriptor(0, ZclIRTransmitterServer.ATTR_CurrentFlag_NAME, new ZclDataTypeUI16(),
+				null, true, 1));
+		attributesMapByName.put(ZclIRTransmitterServer.ATTR_TotalStudiedFlag_NAME, new ZclAttributeDescriptor(1, ZclIRTransmitterServer.ATTR_TotalStudiedFlag_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclIRTransmitterServer.ATTR_MaxCount_NAME, new ZclAttributeDescriptor(2, ZclIRTransmitterServer.ATTR_MaxCount_NAME, new ZclDataTypeUI16(), null,
+				true, 1));
 	}
 
 	public ZclIRTransmitterServer() throws ApplianceException {

@@ -34,7 +34,6 @@ import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUI32;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUI8;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUTCTime;
 
-
 public class ZclTimeClient extends ZclServiceCluster implements TimeClient, ZigBeeDeviceListener {
 
 	public final static short CLUSTER_ID = 10;
@@ -88,8 +87,7 @@ public class ZclTimeClient extends ZclServiceCluster implements TimeClient, ZigB
 		}
 	}
 
-	protected boolean fillAttributeRecord(IZclFrame zclResponseFrame, int attrId) throws ServiceClusterException,
-			ApplianceException {
+	protected boolean fillAttributeRecord(IZclFrame zclResponseFrame, int attrId) throws ServiceClusterException, ApplianceException {
 		TimeServer c = ((TimeServer) getSinglePeerCluster((TimeServer.class.getName())));
 		IEndPointRequestContext context = endPoint.getDefaultRequestContext();
 

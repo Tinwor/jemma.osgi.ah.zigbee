@@ -20,8 +20,7 @@ import org.energy_home.jemma.ah.hac.ApplianceException;
 import org.energy_home.jemma.ah.zigbee.ZigBeeDeviceListener;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.ZclServiceCluster;
 
-public class ZclOnOffSwitchConfigurationClient extends ZclServiceCluster implements OnOffSwitchConfigurationClient,
-		ZigBeeDeviceListener {
+public class ZclOnOffSwitchConfigurationClient extends ZclServiceCluster implements OnOffSwitchConfigurationClient, ZigBeeDeviceListener {
 
 	public final static short CLUSTER_ID = 7;
 

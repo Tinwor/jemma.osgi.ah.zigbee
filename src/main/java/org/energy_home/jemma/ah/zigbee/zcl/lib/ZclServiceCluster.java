@@ -244,7 +244,8 @@ public class ZclServiceCluster extends ServiceCluster implements IZclServiceClus
 		return zclFrame;
 	}
 
-	protected ISubscriptionParameters[] configureReportings(int clusterId, String[] attrNames, ISubscriptionParameters[] parameters, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException, ZclValidationException {
+	protected ISubscriptionParameters[] configureReportings(int clusterId, String[] attrNames, ISubscriptionParameters[] parameters, IEndPointRequestContext context)
+			throws ApplianceException, ServiceClusterException, ZclValidationException {
 
 		boolean sync = true;
 
@@ -593,7 +594,8 @@ public class ZclServiceCluster extends ServiceCluster implements IZclServiceClus
 		return -1;
 	}
 
-	public ISubscriptionParameters setAttributeSubscription(String attributeName, ISubscriptionParameters parameters, IEndPointRequestContext endPointRequestContext) throws ApplianceException, ServiceClusterException {
+	public ISubscriptionParameters setAttributeSubscription(String attributeName, ISubscriptionParameters parameters, IEndPointRequestContext endPointRequestContext)
+			throws ApplianceException, ServiceClusterException {
 		// FIXME: currently sleeping end device is supposed to later receive the
 		// subscription (no error managed)
 		// TODO: add configure reporting read operation
@@ -610,10 +612,12 @@ public class ZclServiceCluster extends ServiceCluster implements IZclServiceClus
 			LOG.warn("Error while subscribing attribute " + attributeName + " for driver appliance " + this.getEndPoint().getAppliance().getPid() + ". Unsupported Attribute!", e1);
 			sps = new ISubscriptionParameters[] { null };
 		} catch (UnsupportedGeneralCommandException e2) {
-			LOG.warn("Error while subscribing attribute " + attributeName + " for driver appliance " + this.getEndPoint().getAppliance().getPid() + ". Unsupported General Command!", e2);
+			LOG.warn("Error while subscribing attribute " + attributeName + " for driver appliance " + this.getEndPoint().getAppliance().getPid()
+					+ ". Unsupported General Command!", e2);
 			sps = new ISubscriptionParameters[] { null };
 		} catch (Exception e) {
-			LOG.warn("Error while subscribing attribute " + attributeName + " for driver appliance " + this.getEndPoint().getAppliance().getPid() + ". Maybe this is a sleeping end device!", e);
+			LOG.warn("Error while subscribing attribute " + attributeName + " for driver appliance " + this.getEndPoint().getAppliance().getPid()
+					+ ". Maybe this is a sleeping end device!", e);
 			sps = new ISubscriptionParameters[] { parameters };
 		}
 

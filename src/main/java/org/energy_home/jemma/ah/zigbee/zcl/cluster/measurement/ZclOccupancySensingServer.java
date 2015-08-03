@@ -38,20 +38,18 @@ public class ZclOccupancySensingServer extends ZclServiceCluster implements Occu
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclOccupancySensingServer.ATTR_Occupancy_NAME, new ZclAttributeDescriptor(0,
-				ZclOccupancySensingServer.ATTR_Occupancy_NAME, new ZclDataTypeBitmap8(), null, true, 1));
-		attributesMapByName.put(ZclOccupancySensingServer.ATTR_OccupancySensorType_NAME, new ZclAttributeDescriptor(1,
-				ZclOccupancySensingServer.ATTR_OccupancySensorType_NAME, new ZclDataTypeEnum8(), null, true, 1));
+		attributesMapByName.put(ZclOccupancySensingServer.ATTR_Occupancy_NAME, new ZclAttributeDescriptor(0, ZclOccupancySensingServer.ATTR_Occupancy_NAME,
+				new ZclDataTypeBitmap8(), null, true, 1));
+		attributesMapByName.put(ZclOccupancySensingServer.ATTR_OccupancySensorType_NAME, new ZclAttributeDescriptor(1, ZclOccupancySensingServer.ATTR_OccupancySensorType_NAME,
+				new ZclDataTypeEnum8(), null, true, 1));
 		attributesMapByName.put(ZclOccupancySensingServer.ATTR_PIROccupiedToUnoccupiedDelay_NAME, new ZclAttributeDescriptor(16,
 				ZclOccupancySensingServer.ATTR_PIROccupiedToUnoccupiedDelay_NAME, new ZclDataTypeUI8(), null, true, 1));
 		attributesMapByName.put(ZclOccupancySensingServer.ATTR_PIRUnccupiedToOccupiedDelay_NAME, new ZclAttributeDescriptor(17,
 				ZclOccupancySensingServer.ATTR_PIRUnccupiedToOccupiedDelay_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclOccupancySensingServer.ATTR_UltraSonicOccupiedToUnoccupiedDelay_NAME,
-				new ZclAttributeDescriptor(32, ZclOccupancySensingServer.ATTR_UltraSonicOccupiedToUnoccupiedDelay_NAME,
-						new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclOccupancySensingServer.ATTR_UltraSonicPIRUnccupiedToOccupiedDelay_NAME,
-				new ZclAttributeDescriptor(33, ZclOccupancySensingServer.ATTR_UltraSonicPIRUnccupiedToOccupiedDelay_NAME,
-						new ZclDataTypeUI8(), null, true, 1));
+		attributesMapByName.put(ZclOccupancySensingServer.ATTR_UltraSonicOccupiedToUnoccupiedDelay_NAME, new ZclAttributeDescriptor(32,
+				ZclOccupancySensingServer.ATTR_UltraSonicOccupiedToUnoccupiedDelay_NAME, new ZclDataTypeUI8(), null, true, 1));
+		attributesMapByName.put(ZclOccupancySensingServer.ATTR_UltraSonicPIRUnccupiedToOccupiedDelay_NAME, new ZclAttributeDescriptor(33,
+				ZclOccupancySensingServer.ATTR_UltraSonicPIRUnccupiedToOccupiedDelay_NAME, new ZclDataTypeUI8(), null, true, 1));
 	}
 
 	public ZclOccupancySensingServer() throws ApplianceException {
@@ -105,8 +103,7 @@ public class ZclOccupancySensingServer extends ZclServiceCluster implements Occu
 		return v;
 	}
 
-	public short getPIROccupiedToUnoccupiedDelay(IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public short getPIROccupiedToUnoccupiedDelay(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Short objectResult = null;
 			objectResult = ((Short) getValidCachedAttributeObject(16, context.getMaxAgeForAttributeValues()));
@@ -134,8 +131,7 @@ public class ZclOccupancySensingServer extends ZclServiceCluster implements Occu
 		return v;
 	}
 
-	public short getUltraSonicOccupiedToUnoccupiedDelay(IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public short getUltraSonicOccupiedToUnoccupiedDelay(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Short objectResult = null;
 			objectResult = ((Short) getValidCachedAttributeObject(32, context.getMaxAgeForAttributeValues()));
@@ -149,8 +145,7 @@ public class ZclOccupancySensingServer extends ZclServiceCluster implements Occu
 		return v;
 	}
 
-	public short getUltraSonicPIRUnccupiedToOccupiedDelay(IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public short getUltraSonicPIRUnccupiedToOccupiedDelay(IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		if (context != null) {
 			Short objectResult = null;
 			objectResult = ((Short) getValidCachedAttributeObject(33, context.getMaxAgeForAttributeValues()));

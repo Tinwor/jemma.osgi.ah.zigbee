@@ -36,10 +36,10 @@ public class ZclThermostatServer extends ZclServiceCluster implements Thermostat
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclThermostatServer.ATTR_LocalTemperature_NAME, new ZclAttributeDescriptor(0,
-				ZclThermostatServer.ATTR_LocalTemperature_NAME, new ZclDataTypeI16(), null, true, 1));
-		attributesMapByName.put(ZclThermostatServer.ATTR_MinCoolSetpointLimit_NAME, new ZclAttributeDescriptor(23,
-				ZclThermostatServer.ATTR_MinCoolSetpointLimit_NAME, new ZclDataTypeI16(), null, true, 1));
+		attributesMapByName.put(ZclThermostatServer.ATTR_LocalTemperature_NAME, new ZclAttributeDescriptor(0, ZclThermostatServer.ATTR_LocalTemperature_NAME, new ZclDataTypeI16(),
+				null, true, 1));
+		attributesMapByName.put(ZclThermostatServer.ATTR_MinCoolSetpointLimit_NAME, new ZclAttributeDescriptor(23, ZclThermostatServer.ATTR_MinCoolSetpointLimit_NAME,
+				new ZclDataTypeI16(), null, true, 1));
 	}
 
 	public ZclThermostatServer() throws ApplianceException {

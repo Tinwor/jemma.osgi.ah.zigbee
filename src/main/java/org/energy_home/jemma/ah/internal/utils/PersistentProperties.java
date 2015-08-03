@@ -24,25 +24,24 @@ import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class PersistentProperties extends Properties {	
+public class PersistentProperties extends Properties {
 	private URL url;
 	private Properties properties = null;
-	
+
 	private static final Logger LOG = LoggerFactory.getLogger(PersistentProperties.class);
-	
+
 	public void PersistentProperties1(URL url) throws Exception {
 		this.url = url;
-		this.properties  = new Properties();
+		this.properties = new Properties();
 		this.loadProperties();
 	}
-	
+
 	private synchronized void loadProperties() throws Exception {
 		File f;
 		f = new File(url.getFile());
 		if (f.exists()) {
 			this.properties.load(new FileInputStream(f));
-		}
-		else {
+		} else {
 			f.createNewFile();
 		}
 	}
@@ -52,49 +51,49 @@ public class PersistentProperties extends Properties {
 		try {
 			this.sync();
 		} catch (Exception e) {
-			LOG.error("Unable to write preferences {}",e);
-		}		
+			LOG.error("Unable to write preferences {}", e);
+		}
 	}
-	
+
 	public void putString(String name, String value) {
 		this.properties.setProperty(name, value);
 		try {
 			this.sync();
 		} catch (Exception e) {
-			LOG.error("Unable to write preferences {}",e);
+			LOG.error("Unable to write preferences {}", e);
 		}
 	}
-	
+
 	public boolean getBoolean(String name, boolean value) {
 		String v = this.properties.getProperty(name);
 		if (v == null) {
 			return value;
 		}
-		
+
 		return Boolean.parseBoolean(v);
 	}
-	
+
 	public String getString(String name, String value) {
 		String v = this.properties.getProperty(name);
 		if (v == null) {
 			return value;
 		}
-		
+
 		return v;
 	}
-	
+
 	public synchronized void saveProperties() throws Exception {
 		this.saveProperties();
 	}
-	
-	protected  void _saveProperties() throws Exception {
+
+	protected void _saveProperties() throws Exception {
 		File f;
 		f = new File(url.getFile());
 		FileOutputStream fos = new FileOutputStream(f);
 		properties.store(fos, null);
 		fos.close();
 	}
-	
+
 	public synchronized void sync() throws Exception {
 		this._saveProperties();
 	}

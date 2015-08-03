@@ -45,24 +45,24 @@ public class ZclSimpleMeteringServer extends ZclServiceCluster implements Simple
 				ZclSimpleMeteringServer.ATTR_CurrentSummationDelivered_NAME, new ZclDataTypeUI48(), null, true, 1));
 		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_CurrentSummationReceived_NAME, new ZclAttributeDescriptor(1,
 				ZclSimpleMeteringServer.ATTR_CurrentSummationReceived_NAME, new ZclDataTypeUI48(), null, true, 1));
-		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_PowerFactor_NAME, new ZclAttributeDescriptor(6,
-				ZclSimpleMeteringServer.ATTR_PowerFactor_NAME, new ZclDataTypeI8(), null, true, 1));
-		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_Status_NAME, new ZclAttributeDescriptor(512,
-				ZclSimpleMeteringServer.ATTR_Status_NAME, new ZclDataTypeBitmap8(), null, true, 1));
-		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_UnitOfMeasure_NAME, new ZclAttributeDescriptor(768,
-				ZclSimpleMeteringServer.ATTR_UnitOfMeasure_NAME, new ZclDataTypeEnum8(), null, true, 1));
-		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_Multiplier_NAME, new ZclAttributeDescriptor(769,
-				ZclSimpleMeteringServer.ATTR_Multiplier_NAME, new ZclDataTypeUI24(), null, true, 1));
-		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_Divisor_NAME, new ZclAttributeDescriptor(770,
-				ZclSimpleMeteringServer.ATTR_Divisor_NAME, new ZclDataTypeUI24(), null, true, 1));
-		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_SummationFormatting_NAME, new ZclAttributeDescriptor(771,
-				ZclSimpleMeteringServer.ATTR_SummationFormatting_NAME, new ZclDataTypeBitmap8(), null, true, 1));
-		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_DemandFormatting_NAME, new ZclAttributeDescriptor(772,
-				ZclSimpleMeteringServer.ATTR_DemandFormatting_NAME, new ZclDataTypeBitmap8(), null, true, 1));
-		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_MeteringDeviceType_NAME, new ZclAttributeDescriptor(774,
-				ZclSimpleMeteringServer.ATTR_MeteringDeviceType_NAME, new ZclDataTypeBitmap8(), null, true, 1));
-		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_IstantaneousDemand_NAME, new ZclAttributeDescriptor(1024,
-				ZclSimpleMeteringServer.ATTR_IstantaneousDemand_NAME, new ZclDataTypeI24(), null, true, 1));
+		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_PowerFactor_NAME, new ZclAttributeDescriptor(6, ZclSimpleMeteringServer.ATTR_PowerFactor_NAME, new ZclDataTypeI8(),
+				null, true, 1));
+		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_Status_NAME, new ZclAttributeDescriptor(512, ZclSimpleMeteringServer.ATTR_Status_NAME, new ZclDataTypeBitmap8(), null,
+				true, 1));
+		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_UnitOfMeasure_NAME, new ZclAttributeDescriptor(768, ZclSimpleMeteringServer.ATTR_UnitOfMeasure_NAME,
+				new ZclDataTypeEnum8(), null, true, 1));
+		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_Multiplier_NAME, new ZclAttributeDescriptor(769, ZclSimpleMeteringServer.ATTR_Multiplier_NAME, new ZclDataTypeUI24(),
+				null, true, 1));
+		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_Divisor_NAME, new ZclAttributeDescriptor(770, ZclSimpleMeteringServer.ATTR_Divisor_NAME, new ZclDataTypeUI24(), null,
+				true, 1));
+		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_SummationFormatting_NAME, new ZclAttributeDescriptor(771, ZclSimpleMeteringServer.ATTR_SummationFormatting_NAME,
+				new ZclDataTypeBitmap8(), null, true, 1));
+		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_DemandFormatting_NAME, new ZclAttributeDescriptor(772, ZclSimpleMeteringServer.ATTR_DemandFormatting_NAME,
+				new ZclDataTypeBitmap8(), null, true, 1));
+		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_MeteringDeviceType_NAME, new ZclAttributeDescriptor(774, ZclSimpleMeteringServer.ATTR_MeteringDeviceType_NAME,
+				new ZclDataTypeBitmap8(), null, true, 1));
+		attributesMapByName.put(ZclSimpleMeteringServer.ATTR_IstantaneousDemand_NAME, new ZclAttributeDescriptor(1024, ZclSimpleMeteringServer.ATTR_IstantaneousDemand_NAME,
+				new ZclDataTypeI24(), null, true, 1));
 	}
 
 	public ZclSimpleMeteringServer() throws ApplianceException {

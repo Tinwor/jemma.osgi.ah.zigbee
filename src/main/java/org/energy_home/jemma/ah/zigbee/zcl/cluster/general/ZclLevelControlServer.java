@@ -39,14 +39,14 @@ public class ZclLevelControlServer extends ZclServiceCluster implements LevelCon
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclLevelControlServer.ATTR_CurrentLevel_NAME, new ZclAttributeDescriptor(0,
-				ZclLevelControlServer.ATTR_CurrentLevel_NAME, new ZclDataTypeUI8(), null, true, 1));
-		attributesMapByName.put(ZclLevelControlServer.ATTR_RemainingTime_NAME, new ZclAttributeDescriptor(1,
-				ZclLevelControlServer.ATTR_RemainingTime_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLevelControlServer.ATTR_OnOffTransitionTime_NAME, new ZclAttributeDescriptor(16,
-				ZclLevelControlServer.ATTR_OnOffTransitionTime_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName.put(ZclLevelControlServer.ATTR_OnLevel_NAME, new ZclAttributeDescriptor(17,
-				ZclLevelControlServer.ATTR_OnLevel_NAME, new ZclDataTypeUI8(), null, true, 1));
+		attributesMapByName.put(ZclLevelControlServer.ATTR_CurrentLevel_NAME, new ZclAttributeDescriptor(0, ZclLevelControlServer.ATTR_CurrentLevel_NAME, new ZclDataTypeUI8(),
+				null, true, 1));
+		attributesMapByName.put(ZclLevelControlServer.ATTR_RemainingTime_NAME, new ZclAttributeDescriptor(1, ZclLevelControlServer.ATTR_RemainingTime_NAME, new ZclDataTypeUI16(),
+				null, true, 1));
+		attributesMapByName.put(ZclLevelControlServer.ATTR_OnOffTransitionTime_NAME, new ZclAttributeDescriptor(16, ZclLevelControlServer.ATTR_OnOffTransitionTime_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclLevelControlServer.ATTR_OnLevel_NAME, new ZclAttributeDescriptor(17, ZclLevelControlServer.ATTR_OnLevel_NAME, new ZclDataTypeUI8(), null, true,
+				1));
 	}
 
 	public ZclLevelControlServer() throws ApplianceException {
@@ -72,8 +72,7 @@ public class ZclLevelControlServer extends ZclServiceCluster implements LevelCon
 		return null;
 	}
 
-	public void execMoveToLevel(short Level, int TransitionTime, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execMoveToLevel(short Level, int TransitionTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(Level);
 		size += ZclDataTypeUI16.zclSize(TransitionTime);
@@ -84,8 +83,7 @@ public class ZclLevelControlServer extends ZclServiceCluster implements LevelCon
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execMove(short MoveMode, short Rate, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execMove(short MoveMode, short Rate, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(MoveMode);
 		size += ZclDataTypeUI8.zclSize(Rate);
@@ -96,8 +94,7 @@ public class ZclLevelControlServer extends ZclServiceCluster implements LevelCon
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execStep(short StepMode, short StepSize, int TransitionTime, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execStep(short StepMode, short StepSize, int TransitionTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(StepMode);
 		size += ZclDataTypeUI8.zclSize(StepSize);
@@ -116,8 +113,7 @@ public class ZclLevelControlServer extends ZclServiceCluster implements LevelCon
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execMoveToLevelWithOnOff(short Level, int TransitionTime, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execMoveToLevelWithOnOff(short Level, int TransitionTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI8.zclSize(Level);
 		size += ZclDataTypeUI16.zclSize(TransitionTime);
@@ -129,8 +125,7 @@ public class ZclLevelControlServer extends ZclServiceCluster implements LevelCon
 		setCachedAttributeObject(0, new Short(Level));
 	}
 
-	public void execMoveWithOnOff(short MoveMode, short Rate, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execMoveWithOnOff(short MoveMode, short Rate, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(MoveMode);
 		size += ZclDataTypeUI8.zclSize(Rate);
@@ -139,11 +134,10 @@ public class ZclLevelControlServer extends ZclServiceCluster implements LevelCon
 		ZclDataTypeEnum8.zclSerialize(zclFrame, MoveMode);
 		ZclDataTypeUI8.zclSerialize(zclFrame, Rate);
 		issueExec(zclFrame, 11, context);
-		
+
 	}
 
-	public void execStepWithOnOff(short StepMode, short StepSize, int TransitionTime, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execStepWithOnOff(short StepMode, short StepSize, int TransitionTime, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(StepMode);
 		size += ZclDataTypeUI8.zclSize(StepSize);

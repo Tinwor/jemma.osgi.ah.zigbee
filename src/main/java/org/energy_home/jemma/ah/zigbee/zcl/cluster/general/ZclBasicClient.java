@@ -58,8 +58,7 @@ public class ZclBasicClient extends ZclServiceCluster implements BasicClient, Zi
 		}
 	}
 
-	protected boolean fillAttributeRecord(IZclFrame zclResponseFrame, int attrId) throws ServiceClusterException,
-			ApplianceException {
+	protected boolean fillAttributeRecord(IZclFrame zclResponseFrame, int attrId) throws ServiceClusterException, ApplianceException {
 		BasicServer c = ((BasicServer) getSinglePeerCluster((BasicServer.class.getName())));
 
 		switch (attrId) {
@@ -86,7 +85,7 @@ public class ZclBasicClient extends ZclServiceCluster implements BasicClient, Zi
 		}
 		return true;
 	}
-	
+
 	protected short writeAttribute(IZclFrame zclFrame, int attrId, short dataType) throws Exception {
 
 		switch (attrId) {

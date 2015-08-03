@@ -31,8 +31,7 @@ import org.energy_home.jemma.ah.zigbee.zcl.lib.ZclServiceCluster;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUI24;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUI8;
 
-public class ZclApplianceEventsAndAlertsClient extends ZclServiceCluster implements ApplianceEventsAndAlertsClient,
-		ZigBeeDeviceListener {
+public class ZclApplianceEventsAndAlertsClient extends ZclServiceCluster implements ApplianceEventsAndAlertsClient, ZigBeeDeviceListener {
 
 	public final static short CLUSTER_ID = 2818;
 
@@ -53,8 +52,7 @@ public class ZclApplianceEventsAndAlertsClient extends ZclServiceCluster impleme
 		IZclFrame responseZclFrame = null;
 		ZigBeeDevice device = getZigBeeDevice();
 		int statusCode = ZCL.SUCCESS;
-		ApplianceEventsAndAlertsServer c = ((ApplianceEventsAndAlertsServer) getSinglePeerCluster((ApplianceEventsAndAlertsServer.class
-				.getName())));
+		ApplianceEventsAndAlertsServer c = ((ApplianceEventsAndAlertsServer) getSinglePeerCluster((ApplianceEventsAndAlertsServer.class.getName())));
 		switch (commandId) {
 		case 0:
 			responseZclFrame = parseGetEventsAndAlerts(c, zclFrame);
@@ -76,8 +74,7 @@ public class ZclApplianceEventsAndAlertsClient extends ZclServiceCluster impleme
 		return CLUSTER_ID;
 	}
 
-	public void execAlertsNotification(int[] Events, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execAlertsNotification(int[] Events, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += (Events.length * ZclDataTypeUI24.zclSize(0));
 		size += 1;
@@ -89,24 +86,21 @@ public class ZclApplianceEventsAndAlertsClient extends ZclServiceCluster impleme
 		}
 		issueExec(zclFrame, 11, context);
 	}
-	
-    public void execEventNotification(short EventHeader, short EventIdentification, IEndPointRequestContext context)
-            throws ApplianceException, ServiceClusterException
-        {
-            int size = 0;
-		size += ZclDataTypeUI8 .zclSize(EventHeader);
-            size += ZclDataTypeUI8 .zclSize(EventIdentification);
-            ZclFrame zclFrame = new ZclFrame(1, size);
-            zclFrame.setCommandId(2);
-            ZclDataTypeUI8 .zclSerialize(zclFrame, EventHeader);
-            ZclDataTypeUI8 .zclSerialize(zclFrame, EventIdentification);
-            issueExec(zclFrame, 11, context);
-        }
 
-	protected IZclFrame parseGetEventsAndAlerts(ApplianceEventsAndAlertsServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
-		//TODO: check merge, following line was different in 3.3.0
-		//GetAlertsResponse r = o.execGetAlerts(null);
+	public void execEventNotification(short EventHeader, short EventIdentification, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
+		int size = 0;
+		size += ZclDataTypeUI8.zclSize(EventHeader);
+		size += ZclDataTypeUI8.zclSize(EventIdentification);
+		ZclFrame zclFrame = new ZclFrame(1, size);
+		zclFrame.setCommandId(2);
+		ZclDataTypeUI8.zclSerialize(zclFrame, EventHeader);
+		ZclDataTypeUI8.zclSerialize(zclFrame, EventIdentification);
+		issueExec(zclFrame, 11, context);
+	}
+
+	protected IZclFrame parseGetEventsAndAlerts(ApplianceEventsAndAlertsServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
+		// TODO: check merge, following line was different in 3.3.0
+		// GetAlertsResponse r = o.execGetAlerts(null);
 		GetAlertsResponse r = o.execGetAlerts(endPoint.getDefaultRequestContext());
 		int size = ZclGetAlertsResponse.zclSize(r);
 		IZclFrame zclResponseFrame = zclFrame.createResponseFrame(size);

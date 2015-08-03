@@ -44,8 +44,8 @@ public class ZclGroupsServer extends ZclServiceCluster implements GroupsServer, 
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclGroupsServer.ATTR_NameSupport_NAME, new ZclAttributeDescriptor(0,
-				ZclGroupsServer.ATTR_NameSupport_NAME, new ZclDataTypeBitmap8(), null, true, 1));
+		attributesMapByName.put(ZclGroupsServer.ATTR_NameSupport_NAME,
+				new ZclAttributeDescriptor(0, ZclGroupsServer.ATTR_NameSupport_NAME, new ZclDataTypeBitmap8(), null, true, 1));
 	}
 
 	public ZclGroupsServer() throws ApplianceException {
@@ -71,8 +71,7 @@ public class ZclGroupsServer extends ZclServiceCluster implements GroupsServer, 
 		return null;
 	}
 
-	public AddGroupResponse execAddGroup(int GroupID, String GroupName, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public AddGroupResponse execAddGroup(int GroupID, String GroupName, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(GroupID);
 		size += ZclDataTypeString.zclSize(GroupName);
@@ -84,8 +83,7 @@ public class ZclGroupsServer extends ZclServiceCluster implements GroupsServer, 
 		return (ZclAddGroupResponse.zclParse(zclResponseFrame));
 	}
 
-	public ViewGroupResponse execViewGroup(int GroupID, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public ViewGroupResponse execViewGroup(int GroupID, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(GroupID);
 		ZclFrame zclFrame = new ZclFrame(1, size);
@@ -95,8 +93,7 @@ public class ZclGroupsServer extends ZclServiceCluster implements GroupsServer, 
 		return (ZclViewGroupResponse.zclParse(zclResponseFrame));
 	}
 
-	public GetGroupMembershipResponse execGetGroupMembership(int[] GroupList, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public GetGroupMembershipResponse execGetGroupMembership(int[] GroupList, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 1;
 		if (GroupList != null) {
 			size += GroupList.length * 2;
@@ -118,8 +115,7 @@ public class ZclGroupsServer extends ZclServiceCluster implements GroupsServer, 
 		return (ZclGetGroupMembershipResponse.zclParse(zclResponseFrame));
 	}
 
-	public RemoveGroupResponse execRemoveGroup(int GroupID, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public RemoveGroupResponse execRemoveGroup(int GroupID, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(GroupID);
 		ZclFrame zclFrame = new ZclFrame(1, size);
@@ -135,8 +131,7 @@ public class ZclGroupsServer extends ZclServiceCluster implements GroupsServer, 
 		issueExec(zclFrame, 11, context);
 	}
 
-	public void execAddGroupIfIdentifying(int GroupID, String GroupName, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execAddGroupIfIdentifying(int GroupID, String GroupName, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeUI16.zclSize(GroupID);
 		size += ZclDataTypeString.zclSize(GroupName);

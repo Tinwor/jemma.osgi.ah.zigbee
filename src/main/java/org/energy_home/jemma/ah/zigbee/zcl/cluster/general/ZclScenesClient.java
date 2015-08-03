@@ -57,8 +57,7 @@ public class ZclScenesClient extends ZclServiceCluster implements ScenesClient, 
 		IZclFrame responseZclFrame = null;
 		ZigBeeDevice device = getZigBeeDevice();
 		int statusCode = ZCL.SUCCESS;
-		ScenesServer c = ((ScenesServer) getSinglePeerCluster((ScenesServer.class
-				.getName())));
+		ScenesServer c = ((ScenesServer) getSinglePeerCluster((ScenesServer.class.getName())));
 		switch (commandId) {
 		case 0:
 			responseZclFrame = parseAddScene(c, zclFrame);
@@ -98,8 +97,7 @@ public class ZclScenesClient extends ZclServiceCluster implements ScenesClient, 
 		return CLUSTER_ID;
 	}
 
-	public void execStoreScenesResponse(short Status, int GroupID, short SceneID, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execStoreScenesResponse(short Status, int GroupID, short SceneID, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeEnum8.zclSize(Status);
 		size += ZclDataTypeUI16.zclSize(GroupID);
@@ -112,15 +110,13 @@ public class ZclScenesClient extends ZclServiceCluster implements ScenesClient, 
 		issueExec(zclFrame, 11, context);
 	}
 
-	protected IZclFrame parseAddScene(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseAddScene(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int GroupID = ZclDataTypeUI16.zclParse(zclFrame);
 		short SceneID = ZclDataTypeUI8.zclParse(zclFrame);
 		int TransitionTime = ZclDataTypeUI16.zclParse(zclFrame);
 		String SceneName = ZclDataTypeString.zclParse(zclFrame);
 		byte[] ExtensionFieldSet = zclFrame.parseOctets();
-		AddSceneResponse r = o.execAddScene(GroupID, SceneID, TransitionTime, SceneName, ExtensionFieldSet,
-				endPoint.getDefaultRequestContext());
+		AddSceneResponse r = o.execAddScene(GroupID, SceneID, TransitionTime, SceneName, ExtensionFieldSet, endPoint.getDefaultRequestContext());
 		int size = ZclAddSceneResponse.zclSize(r);
 		IZclFrame zclResponseFrame = zclFrame.createResponseFrame(size);
 		zclResponseFrame.setCommandId(0);
@@ -128,8 +124,7 @@ public class ZclScenesClient extends ZclServiceCluster implements ScenesClient, 
 		return zclResponseFrame;
 	}
 
-	protected IZclFrame parseViewScene(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseViewScene(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int GroupID = ZclDataTypeUI16.zclParse(zclFrame);
 		short SceneID = ZclDataTypeUI8.zclParse(zclFrame);
 		ViewSceneResponse r = o.execViewScene(GroupID, SceneID, endPoint.getDefaultRequestContext());
@@ -140,8 +135,7 @@ public class ZclScenesClient extends ZclServiceCluster implements ScenesClient, 
 		return zclResponseFrame;
 	}
 
-	protected IZclFrame parseRemoveScene(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseRemoveScene(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int GroupID = ZclDataTypeUI16.zclParse(zclFrame);
 		short SceneID = ZclDataTypeUI8.zclParse(zclFrame);
 		RemoveSceneResponse r = o.execRemoveScene(GroupID, SceneID, endPoint.getDefaultRequestContext());
@@ -152,8 +146,7 @@ public class ZclScenesClient extends ZclServiceCluster implements ScenesClient, 
 		return zclResponseFrame;
 	}
 
-	protected IZclFrame parseRemoveAllScenes(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseRemoveAllScenes(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int GroupID = ZclDataTypeUI16.zclParse(zclFrame);
 		RemoveAllScenesResponse r = o.execRemoveAllScenes(GroupID, endPoint.getDefaultRequestContext());
 		int size = ZclRemoveAllScenesResponse.zclSize(r);
@@ -163,24 +156,22 @@ public class ZclScenesClient extends ZclServiceCluster implements ScenesClient, 
 		return zclResponseFrame;
 	}
 
-	protected IZclFrame parseStoreScene(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseStoreScene(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int GroupID = ZclDataTypeUI16.zclParse(zclFrame);
 		short SceneID = ZclDataTypeUI8.zclParse(zclFrame);
 		o.execStoreScene(GroupID, SceneID, endPoint.getDefaultRequestContext());
 		return null;
 	}
 
-	protected IZclFrame parseRecallScene(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseRecallScene(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		int GroupID = ZclDataTypeUI16.zclParse(zclFrame);
 		short SceneID = ZclDataTypeUI8.zclParse(zclFrame);
 		o.execRecallScene(GroupID, SceneID, endPoint.getDefaultRequestContext());
 		return null;
 	}
 
-	protected IZclFrame parseGetSceneMembership(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame)
-			throws ApplianceException, ServiceClusterException {
+	protected IZclFrame parseGetSceneMembership(org.energy_home.jemma.ah.cluster.zigbee.general.ScenesServer o, IZclFrame zclFrame) throws ApplianceException,
+			ServiceClusterException {
 		int GroupID = ZclDataTypeUI16.zclParse(zclFrame);
 		o.execGetSceneMembership(GroupID, endPoint.getDefaultRequestContext());
 		return null;

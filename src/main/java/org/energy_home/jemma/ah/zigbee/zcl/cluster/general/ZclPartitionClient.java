@@ -98,8 +98,7 @@ public class ZclPartitionClient extends ZclServiceCluster implements ZigBeeDevic
 		return ZclPartitionServer.attributeDescriptors;
 	}
 
-	public void execMultipleACK(short ACKOptions, short FirstFrameID, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void execMultipleACK(short ACKOptions, short FirstFrameID, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int size = 0;
 		size += ZclDataTypeBitmap8.zclSize(ACKOptions);
 		size += ZclDataTypeUI8.zclSize(FirstFrameID);
@@ -110,8 +109,7 @@ public class ZclPartitionClient extends ZclServiceCluster implements ZigBeeDevic
 		issueExec(zclFrame, 11, context);
 	}
 
-	protected IZclFrame parseTransferPartitionedFrame(PartitionServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException, ZclException {
+	protected IZclFrame parseTransferPartitionedFrame(PartitionServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException, ZclException {
 		short FragmentationOptions = ZclDataTypeBitmap8.zclParse(zclFrame);
 		int PartitionIndicator = ZclDataTypeUI16.zclParse(zclFrame);
 		short FrameType = ZclDataTypeUI8.zclParse(zclFrame);
@@ -119,13 +117,11 @@ public class ZclPartitionClient extends ZclServiceCluster implements ZigBeeDevic
 		if (o == null) {
 			return null;
 		}
-		o.execTransferPartitionedFrame(FragmentationOptions, PartitionIndicator, FrameType, PartitionedFrame,
-				endPoint.getDefaultRequestContext());
+		o.execTransferPartitionedFrame(FragmentationOptions, PartitionIndicator, FrameType, PartitionedFrame, endPoint.getDefaultRequestContext());
 		return null;
 	}
 
-	protected IZclFrame parseReadHandshakeParam(PartitionServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseReadHandshakeParam(PartitionServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		ReadHandshakeParamResponse r = o.execReadHandshakeParam(endPoint.getDefaultRequestContext());
 		int size = ZclReadHandshakeParamResponse.zclSize(r);
 		IZclFrame zclResponseFrame = zclFrame.createResponseFrame(size);
@@ -134,8 +130,7 @@ public class ZclPartitionClient extends ZclServiceCluster implements ZigBeeDevic
 		return zclResponseFrame;
 	}
 
-	protected IZclFrame parseWriteHandshakeParam(PartitionServer o, IZclFrame zclFrame) throws ApplianceException,
-			ServiceClusterException {
+	protected IZclFrame parseWriteHandshakeParam(PartitionServer o, IZclFrame zclFrame) throws ApplianceException, ServiceClusterException {
 		if (o == null) {
 			return null;
 		}
@@ -170,8 +165,7 @@ public class ZclPartitionClient extends ZclServiceCluster implements ZigBeeDevic
 		}
 	}
 
-	protected boolean fillAttributeRecord(IZclFrame zclResponseFrame, int attrId) throws ApplianceException,
-			ServiceClusterException {
+	protected boolean fillAttributeRecord(IZclFrame zclResponseFrame, int attrId) throws ApplianceException, ServiceClusterException {
 
 		switch (attrId) {
 		case 0: {
@@ -295,7 +289,6 @@ public class ZclPartitionClient extends ZclServiceCluster implements ZigBeeDevic
 		return ZCL.SUCCESS;
 	}
 
-	public void execMultipleACK(short ACKOptions, int FirstFrameID, int[] ackList, IEndPointRequestContext context)
-			throws ApplianceException, ServiceClusterException {
+	public void execMultipleACK(short ACKOptions, int FirstFrameID, int[] ackList, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 	}
 }

@@ -33,8 +33,7 @@ public class ZclByteUtils {
 		int l = Math.min(abyte0.length - 1, (i + k) - 1);
 		for (int i1 = l; i1 >= i; i1--) {
 			if (j >= abyte1.length)
-				throw new ArrayIndexOutOfBoundsException("Destination array has insuffiecient length. Destination offset reached "
-						+ j + " while dest length is " + abyte1.length);
+				throw new ArrayIndexOutOfBoundsException("Destination array has insuffiecient length. Destination offset reached " + j + " while dest length is " + abyte1.length);
 			abyte1[j] = abyte0[i1];
 			j++;
 		}
@@ -93,10 +92,8 @@ public class ZclByteUtils {
 
 	public static final long _64BitLittleEndianToLong(byte abyte0[], int i) {
 		long l = 0L;
-		l = ((long) abyte0[i + 7] << 56) + ((long) (abyte0[i + 6] & 0xff) << 48) + ((long) (abyte0[i + 5] & 0xff) << 40)
-				+ ((long) (abyte0[i + 4] & 0xff) << 32) + ((long) (abyte0[i + 3] & 0xff) << 24)
-				+ ((long) (abyte0[i + 2] & 0xff) << 16) + ((long) (abyte0[i + 1] & 0xff) << 8)
-				+ ((long) (abyte0[i + 0] & 0xff) << 0);
+		l = ((long) abyte0[i + 7] << 56) + ((long) (abyte0[i + 6] & 0xff) << 48) + ((long) (abyte0[i + 5] & 0xff) << 40) + ((long) (abyte0[i + 4] & 0xff) << 32)
+				+ ((long) (abyte0[i + 3] & 0xff) << 24) + ((long) (abyte0[i + 2] & 0xff) << 16) + ((long) (abyte0[i + 1] & 0xff) << 8) + ((long) (abyte0[i + 0] & 0xff) << 0);
 		return l;
 	}
 

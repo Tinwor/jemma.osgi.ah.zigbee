@@ -33,8 +33,7 @@ import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeI16;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUI16;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUI24;
 
-public class ZclDeviceTemperatureConfigurationServer extends ZclServiceCluster implements DeviceTemperatureConfigurationServer,
-		ZigBeeDeviceListener {
+public class ZclDeviceTemperatureConfigurationServer extends ZclServiceCluster implements DeviceTemperatureConfigurationServer, ZigBeeDeviceListener {
 
 	public final static short CLUSTER_ID = 2;
 	final static HashMap attributesMapByName = new HashMap();
@@ -49,20 +48,16 @@ public class ZclDeviceTemperatureConfigurationServer extends ZclServiceCluster i
 				ZclDeviceTemperatureConfigurationServer.ATTR_MaxTempExperienced_NAME, new ZclDataTypeI16(), null, true, 1));
 		attributesMapByName.put(ZclDeviceTemperatureConfigurationServer.ATTR_OverTempTotalDwell_NAME, new ZclAttributeDescriptor(4,
 				ZclDeviceTemperatureConfigurationServer.ATTR_OverTempTotalDwell_NAME, new ZclDataTypeUI16(), null, true, 1));
-		attributesMapByName
-				.put(ZclDeviceTemperatureConfigurationServer.ATTR_DeviceTempAlarmMask_NAME, new ZclAttributeDescriptor(16,
-						ZclDeviceTemperatureConfigurationServer.ATTR_DeviceTempAlarmMask_NAME, new ZclDataTypeBitmap8(), null,
-						true, 0));
+		attributesMapByName.put(ZclDeviceTemperatureConfigurationServer.ATTR_DeviceTempAlarmMask_NAME, new ZclAttributeDescriptor(16,
+				ZclDeviceTemperatureConfigurationServer.ATTR_DeviceTempAlarmMask_NAME, new ZclDataTypeBitmap8(), null, true, 0));
 		attributesMapByName.put(ZclDeviceTemperatureConfigurationServer.ATTR_LowTempThreshold_NAME, new ZclAttributeDescriptor(17,
 				ZclDeviceTemperatureConfigurationServer.ATTR_LowTempThreshold_NAME, new ZclDataTypeI16(), null, true, 0));
 		attributesMapByName.put(ZclDeviceTemperatureConfigurationServer.ATTR_HighTempThreshold_NAME, new ZclAttributeDescriptor(17,
 				ZclDeviceTemperatureConfigurationServer.ATTR_HighTempThreshold_NAME, new ZclDataTypeI16(), null, true, 0));
-		attributesMapByName.put(ZclDeviceTemperatureConfigurationServer.ATTR_LowTempDwellTripPoint_NAME,
-				new ZclAttributeDescriptor(17, ZclDeviceTemperatureConfigurationServer.ATTR_LowTempDwellTripPoint_NAME,
-						new ZclDataTypeUI24(), null, true, 0));
-		attributesMapByName.put(ZclDeviceTemperatureConfigurationServer.ATTR_HighTempDwellTripPoint_NAME,
-				new ZclAttributeDescriptor(17, ZclDeviceTemperatureConfigurationServer.ATTR_HighTempDwellTripPoint_NAME,
-						new ZclDataTypeUI24(), null, true, 0));
+		attributesMapByName.put(ZclDeviceTemperatureConfigurationServer.ATTR_LowTempDwellTripPoint_NAME, new ZclAttributeDescriptor(17,
+				ZclDeviceTemperatureConfigurationServer.ATTR_LowTempDwellTripPoint_NAME, new ZclDataTypeUI24(), null, true, 0));
+		attributesMapByName.put(ZclDeviceTemperatureConfigurationServer.ATTR_HighTempDwellTripPoint_NAME, new ZclAttributeDescriptor(17,
+				ZclDeviceTemperatureConfigurationServer.ATTR_HighTempDwellTripPoint_NAME, new ZclDataTypeUI24(), null, true, 0));
 	}
 
 	public ZclDeviceTemperatureConfigurationServer() throws ApplianceException {
@@ -144,8 +139,7 @@ public class ZclDeviceTemperatureConfigurationServer extends ZclServiceCluster i
 		return v;
 	}
 
-	public void setDeviceTempAlarmMask(short DeviceTempAlarmMask, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setDeviceTempAlarmMask(short DeviceTempAlarmMask, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 16;
 		int size = 3;
 		size += ZclDataTypeBitmap8.zclSize(DeviceTempAlarmMask);
@@ -170,8 +164,7 @@ public class ZclDeviceTemperatureConfigurationServer extends ZclServiceCluster i
 		return v;
 	}
 
-	public void setLowTempThreshold(int LowTempThreshold, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setLowTempThreshold(int LowTempThreshold, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 17;
 		int size = 3;
 		size += ZclDataTypeI16.zclSize(LowTempThreshold);
@@ -196,8 +189,7 @@ public class ZclDeviceTemperatureConfigurationServer extends ZclServiceCluster i
 		return v;
 	}
 
-	public void setHighTempThreshold(int HighTempThreshold, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setHighTempThreshold(int HighTempThreshold, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 17;
 		int size = 3;
 		size += ZclDataTypeI16.zclSize(HighTempThreshold);
@@ -222,8 +214,7 @@ public class ZclDeviceTemperatureConfigurationServer extends ZclServiceCluster i
 		return v;
 	}
 
-	public void setLowTempDwellTripPoint(int LowTempDwellTripPoint, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setLowTempDwellTripPoint(int LowTempDwellTripPoint, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 17;
 		int size = 3;
 		size += ZclDataTypeUI24.zclSize(LowTempDwellTripPoint);
@@ -248,8 +239,7 @@ public class ZclDeviceTemperatureConfigurationServer extends ZclServiceCluster i
 		return v;
 	}
 
-	public void setHighTempDwellTripPoint(int HighTempDwellTripPoint, IEndPointRequestContext context) throws ApplianceException,
-			ServiceClusterException {
+	public void setHighTempDwellTripPoint(int HighTempDwellTripPoint, IEndPointRequestContext context) throws ApplianceException, ServiceClusterException {
 		int attrId = 17;
 		int size = 3;
 		size += ZclDataTypeUI24.zclSize(HighTempDwellTripPoint);

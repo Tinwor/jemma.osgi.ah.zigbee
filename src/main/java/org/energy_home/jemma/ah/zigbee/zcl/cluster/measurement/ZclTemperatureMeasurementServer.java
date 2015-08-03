@@ -30,22 +30,21 @@ import org.energy_home.jemma.ah.zigbee.zcl.lib.ZclServiceCluster;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeI16;
 import org.energy_home.jemma.ah.zigbee.zcl.lib.types.ZclDataTypeUI16;
 
-public class ZclTemperatureMeasurementServer extends ZclServiceCluster implements TemperatureMeasurementServer,
-		ZigBeeDeviceListener {
+public class ZclTemperatureMeasurementServer extends ZclServiceCluster implements TemperatureMeasurementServer, ZigBeeDeviceListener {
 
 	public final static short CLUSTER_ID = 1026;
 	final static HashMap attributesMapByName = new HashMap();
 	final static HashMap attributesMapById = new HashMap();
 
 	static {
-		attributesMapByName.put(ZclTemperatureMeasurementServer.ATTR_MeasuredValue_NAME, new ZclAttributeDescriptor(0,
-				ZclTemperatureMeasurementServer.ATTR_MeasuredValue_NAME, new ZclDataTypeI16(), null, true, 1));
+		attributesMapByName.put(ZclTemperatureMeasurementServer.ATTR_MeasuredValue_NAME, new ZclAttributeDescriptor(0, ZclTemperatureMeasurementServer.ATTR_MeasuredValue_NAME,
+				new ZclDataTypeI16(), null, true, 1));
 		attributesMapByName.put(ZclTemperatureMeasurementServer.ATTR_MinMeasuredValue_NAME, new ZclAttributeDescriptor(1,
 				ZclTemperatureMeasurementServer.ATTR_MinMeasuredValue_NAME, new ZclDataTypeI16(), null, true, 1));
 		attributesMapByName.put(ZclTemperatureMeasurementServer.ATTR_MaxMeasuredValue_NAME, new ZclAttributeDescriptor(2,
 				ZclTemperatureMeasurementServer.ATTR_MaxMeasuredValue_NAME, new ZclDataTypeI16(), null, true, 1));
-		attributesMapByName.put(ZclTemperatureMeasurementServer.ATTR_Tolerance_NAME, new ZclAttributeDescriptor(3,
-				ZclTemperatureMeasurementServer.ATTR_Tolerance_NAME, new ZclDataTypeUI16(), null, true, 1));
+		attributesMapByName.put(ZclTemperatureMeasurementServer.ATTR_Tolerance_NAME, new ZclAttributeDescriptor(3, ZclTemperatureMeasurementServer.ATTR_Tolerance_NAME,
+				new ZclDataTypeUI16(), null, true, 1));
 	}
 
 	public ZclTemperatureMeasurementServer() throws ApplianceException {
